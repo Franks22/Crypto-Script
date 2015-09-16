@@ -1,0 +1,141 @@
+\chapter{Mathematic Repetition}
+
+\section{Modulus Calculation}
+
+\begin{notation} \ \\
+$\Z$: integers $\{\dots,-3,-2,-1,0,1,2,3,\dots\}$ \\
+$\nicefrac{\Z}{n}$: residue classes of $\Z$ modulo n \\
+$\nicefrac{\Z}{6} = \{0,1,2,3,4,5\} = \{-2,-1,0,1,2,3\}$. \\
+\end{notation}
+
+We use integers to represent classes, so $0$ stands for the set of integers which are congruent to $0$ modulo $6$, i.e. $\{0,6,12,18,\dots,-6,-12,\dots\}$. You might have learned this as $\bar{0}$ to denote the class.
+
+$7 \equiv 1 \bmod 6$ ($\widehat{=} 7$ is congruent to $1$ modulo $6$). Usually we want the small represantative on the right side; depends on set chosen, e.g. $17 \equiv 5 \equiv -1 \mod 6$.
+
+\subsection{Multiplication}
+
+If we have a multiplication with modulus n, e.g. $a \cdot b \bmod n$. We can compute the result and then reduce - or we could reduce at any intermediate step. $17 \cdot 35 \equiv -1 \cdot (-1) \equiv 1 \bmod 6$.
+
+\subsection{Exponentiation}
+
+If we want to compute an exponentiation with modulus n: $a^b \bmod n$, we write $b$ in binary:
+
+\[
+b = \sum\limits_{i=0}^{l-1} b_i 2^i;\,\, b_i \in \{0,1\} \,\, \text{ with } \,\, b_{l-1} = 1
+\]
+
+\begin{example} \ \\
+$17 = 1 \cdot 2^4 + 0 \cdot 2^3 + 0 \cdot 2^2 + 0 \cdot 2^1 + 1 \cdot 2^0;$ \\ 
+$35 = 1 \cdot 2^5 + 1 \cdot 2^1 + 1 \cdot 2^0$.
+\end{example}
+
+$a^b = a^{\sum b_i \cdot 2^i} = \Big( \dots \big( \big( a^{b_{l-1}2 + b_{l-2}}\big)^{2+b_{l-3}} \Big)^{2+\dots+2+b_0}$
+
+\subsubsection{Square and Multiply}\index{Square and Multiply}
+
+\begin{algorithm}[H]
+$c \leftarrow a$ \;
+ \For{$i = l-2$ down to $0$}{
+ $c \leftarrow c^2 \bmod n$ \;
+ \If{$b_i = 1$}{
+ $c \leftarrow c \cdot a \bmod n$ \;
+ }
+ output $c$\;
+ }
+ \caption{Square and Multiply - pseudocode}
+\end{algorithm}
+
+\begin{remark}
+This algorithm reduces at every intermediate step, making the exponentiation a lot simpler and faster.
+\end{remark}
+
+\subsection{Inverses}
+
+Sometimes we need to calculate inverses, e.g. divide equation $\bmod 7$ by $4$, this means undo a multiplication by $4$. What we are looking for is to find an integer $a \bmod 7$, such that $4 \cdot a \equiv 1 \bmod 7$, other notation $a^{-1} \equiv 4 \bmod 7$.
+
+Here $a \equiv 2 \bmod 7$ because $4 \cdot 2 \equiv 8 \equiv 1 \bmod 7$.
+
+In general, use \textsc{Euclidean algorithm}\index{Euclidean Algorithm} to compute $a$.
+
+\begin{remark}
+Look up \textsc{XGCD-extended Euclidean algorithm}. %TODO
+\end{remark}
+
+Inverses do not exist if the numbers are not coprime, e.g. $4$ is not inversible $\bmod 6$.
+
+\begin{notation}
+Set of invertible integers $\bmod n$ is denoted by $(\nicefrac{\Z}{n})^{\ast}$
+\end{notation}
+
+\begin{example} \ \\
+\begin{itemize}
+\item $(\nicefrac{\Z}{7})^{\ast} =\{1,2,3,4,5,6\}$ with inverses $1^{-1} \equiv 1 \bmod 7$, $2^{-1} \equiv 4 \bmod 7$, $3^{-1} \equiv 5 \bmod 7$, $6^{-1} \equiv  6 \bmod 7$; these are exactly the integers coprime with $7$.
+\item $(\nicefrac{\Z}{6})^{\ast} = \{1,5\}$
+\item $(\nicefrac{\Z}{6})^{\ast} = \{1,2,3,\dots,p-1\}$ for $p$ prime.
+\end{itemize}
+\end{example}
+
+\textsc{Euler's phi function} gives the size of $|(\nicefrac{\Z}{6})^{\ast}| = \varphi(n)$.
+
+\begin{example}\ \\
+\begin{itemize}
+\item $\varphi(7) = 6$
+\item $\varphi(6) = 2$
+\item $\varphi(p) = p-1$
+\end{itemize}
+\end{example}
+
+For the multiplication of two primes $p, q$ ($p \neq q$) you can calculate the \textsc{phi function} as follows:
+
+\[
+	\begin{matrix}
+  \tikzmark{top}{0} & 1 & 2 & 3 & 4 & \dots & q-1 \\
+  q & q+1 & q+2 & q+3 & \dots & & 2q-1 \\
+  2q & \dots & & & & & \\
+  \vdots & & & & & & \vdots \\
+  \tikzmark{bottom}{(p-1)q} &  &  &  &  & & p \cdot q-1 \\
+ \end{matrix}
+ \DrawLine[ocre, thick, opacity = 0.7]{top}{bottom}
+\]
+
+
+The numbers in the first column are all divisible by $q$ (there are $p$ of them). They can be removed (since $p$ and $q$ are primes, this means that only numbers which are multiples of $p$ or $q$ are not coprime).
+
+Do the same with $p$:
+\[
+\begin{matrix}
+	0 & 1 & 2 & \dots & p-1 \\
+\end{matrix}
+\]
+this removes $q$ values,
+\[
+\varphi(p \cdot q) = p \cdot q - p - q + 1
+\]
+\marginnote{Since the $0$ is removed twice, we have to add $+1$.}[-1cm]
+
+\begin{example} \ \\
+\begin{itemize}
+\item $\varphi (2 \cdot 3) = 2 \cdot 3 - 2 - 3 + 1 = 2$ (same)
+\item $\varphi (p^2) = p^2 - p$, in general:
+\item $\varphi (p^b) = p^b - p^{b-1}$
+\item if you have: $n = \prod\limits_{i=0}^{l-1} p_i^{e^i}$, $p_i \neq p_j$ then ($e_i \in \N \leq 1$)
+\[
+\varphi(n) = \prod(p_i^{e_i} - p_i^{e_i - 1})
+\]
+Test: $\varphi(p \cdot q) = (p-1)(q-1) = p \cdot q - p - q + 1$ as above.
+\end{itemize}
+\end{example}
+
+\section{Lagrange's Theorem}
+
+\begin{theorem}[Lagrange's Theorem]\index{Lagrange's Theorem}
+Let $G$ be a finite group of size $|G| = l$ then for any $a \in G$ we have
+\[
+a^l = 1,
+\]
+where $1$ is the neutral element and $G$ is written multiplicatively
+\end{theorem}
+
+\begin{example}
+$a^6 \equiv 1 \bmod 7$ for $a \in (\nicefrac{\Z}{7})^{\ast}$
+\end{example}

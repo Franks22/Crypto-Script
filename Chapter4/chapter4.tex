@@ -1,0 +1,389 @@
+\chapter{Finite Fields}\index{Finite Field}
+
+\begin{definition}[Fields]
+A set $K$ is a \emph{field} with respect to $\circ$ and $\diamond$, denoted $(K, \circ, \diamond)$, if
+\begin{enumerate}[label=\roman*]
+\item $(K,\circ)$ is an abelian group:\index{Abelian Group}
+\begin{itemize}
+\item \textbf{closure} for all $a, b \in K \Rightarrow a \circ b \in K$
+\item \textbf{associativity} $(a \circ b) \circ c = a \circ (b \circ c) \,\,\,\, a,b,c \in K$
+\item \textbf{identity} there is a $e_0 \in K$ such that for all $a \in K$, $a \circ e_0 = e_0 \circ a = a$
+\item \textbf{inverse} for all $a \in K$, there is a $b \in K$, such that $a \circ b = e_0$
+\item \textbf{commutive} $a \circ b = b \circ a$
+\end{itemize}
+\item $(K^{\ast} =K \ \{e_0\}, \diamond)$ is an abelian group
+\item the distributive law holds in $K$:
+\begin{itemize}
+\item[] $a \diamond (b \circ c) = a \diamond b \circ a \diamond c$
+\end{itemize}
+\end{enumerate}
+\end{definition}
+
+\begin{example} \ \\
+\begin{itemize}
+\item $(\N, +, \cdot)$ is \textbf{NOT} a finite field (e.g. there is no inverse for $+$)
+\item $(\Z, +, \cdot)$ is \textbf{NOT} a finite field (e.g. there is no inverse for $\cdot$)
+\item $(\Q, +, \cdot)$ is a finite field
+\item $(\R, +, \cdot)$ is a finite field
+\item $(\C, +, \cdot)$ is a finite field
+\item $K = \{0,1\}$ is the smallest set we can get: \\
+
+\bgroup
+\def\arraystretch{1.5}
+\begin{tabular}{c|cc}
+$+$ &  0 & 1 \\
+\hline 
+0 & 0 & 1  \\
+1 & 1 & 0 \\
+\end{tabular} \hfill
+\begin{tabular}{c|cc}
+$\cdot$ &  0 & 1 \\
+\hline 
+0 & 0 & 0  \\
+1 & 0 & 1 \\
+\end{tabular} \hfill
+relating to: \hfill
+\begin{tabular}{c|cc}
+$\circ$ &  $e_{\circ}$ & $e_{\diamond}$ \\
+\hline 
+$e_{\circ}$ & $e_{\circ}$ & $e_{\diamond}$  \\
+$e_{\circ}$ & $e_{\diamond}$ & $e_{\circ}$ \\
+\end{tabular} \hfill
+\begin{tabular}{c|cc}
+$\diamond$ &  $e_{\circ}$ & $e_{\diamond}$ \\
+\hline 
+$e_{\circ}$ & $e_{\circ}$ & $e_{\circ}$  \\
+$e_{\diamond}$ & $e_{\circ}$ & $e_{\diamond}$ \\
+\end{tabular}
+\egroup \\ \\
+The $+$ corresponds to \textsc{XOR}, the $\cdot$ to \textsc{AND}
+\end{itemize}
+\end{example}
+
+\begin{definition}[Subfield]\index{Subfield}
+If $(K, \circ, \diamond)$ and $(L,\circ, \diamond)$ are field and $K \subseteq L$ then $K$ is a \emph{subfield} of $L$.
+\end{definition}
+
+\begin{remark}
+$\Rightarrow$ We can add elements of $L$ to and multiply them with elements of $K$ $\Rightarrow$ $L$ is a vectorspace over $K$ (other properties work because of the distributive laws.
+\end{remark}
+
+\begin{definition}[Extension Degree]\index{Extension Degree}
+Let $L$ be a field and let $K$ be a subfield of $L$. The \emph{extension degree} $[L:K]$ is defined as $\dim_k L$, the dimension of $L$ as a $K$ vectorspace. 
+\end{definition}
+
+\begin{definition}[Characteristic]\index{Characteristic}
+Let $K$ be a field. The \emph{characteristic} of $K$, denoted $\op{char}(K)$, is the smallest positive integer $m$ such that $\underbrace{e_{\diamond} \circ e_{\diamond} \circ \dots \circ e_{\diamond}}_{\makebox[0pt]{$\scriptsize\begin{array}{c}m \text{ copies of } e_{\diamond} \text{ denoted as } [m]e_{\diamond}\end{array}$}} = e_{\circ}$; if no such integer exists, $\op{char}(K) = 0$.
+\end{definition}
+
+\begin{lemma} \label{lemma:field}
+The characteristic of a field is $0$ or a prime
+\begin{proof}
+Let $\op{char}(K) = n = a \cdot b \,\,\,\, 1<a,b<n$. Then
+\[
+	e_{\circ} = [m]e_{\diamond} = [a \cdot b]e_{\diamond} = [a]e_{\diamond} \diamond [b]e_{\diamond}
+\]
+Since a field has no zero divisors it must be that $[a]e_{\diamond} = e_{\circ}$ or $[b]e_{\diamond} = e_{\circ} \,\, \lightning$ to minimality of $\op{char}(K) = n$.
+\end{proof}
+\end{lemma}
+
+\begin{remark}
+In the proof of Lemma \ref{lemma:field} we repeatedly used the distributive law:
+\begin{align*}
+&[a]e_{\diamond} \diamond [b]e_{\diamond} \\
+\iff &(e_{\diamond} \circ [a-1]e_{\diamond}) \diamond [b]e_{\diamond} 
+\iff \underbrace{e_{\diamond} \diamond [b]e_{\diamond}}_{\makebox[0pt]{$\scriptsize\begin{array}{c}= [b]e_{\diamond}, \\ \text{ since }e_{\diamond} \text{ is the neutral} \\ \text{ element for } \diamond \end{array}$}} \circ [a-1]e_{\diamond} \diamond [b]e_{\diamond} \\
+\iff &[b]e_{\diamond} \circ (e_{\diamond} \circ [a-2]e_{\diamond}) \diamond [b]e_{\diamond} 
+\iff \dots \iff \underbrace{[b]e_{\diamond} \circ [b]e_{\diamond} \dots \circ [b]e_{\diamond}}_{a \text{ times } \,\, \rightarrow \,\, [a \cdot b]e_{\diamond}}
+\end{align*}
+\end{remark}
+
+\begin{lemma}
+A finite field $K$ has characteristic $p$ for some prime $p$
+\begin{proof}
+Since $K$ is finite, there must be $i,j \in \N$ with $[i]e_{\diamond} = [j]e_{\diamond}$. Let $i > j$ then $[i-j]e_{\diamond} = e_{\circ}$ and so $\op{char}(K)|(i-j)$.
+\end{proof}
+\end{lemma}
+
+Let $K$ be a finite field. We will now explore its structure. We know already: $\ch(K) = p$ for a prime $p$, and there exists $e_{\circ}, e_{\diamond} \in K$ with $e_{\circ} \neq e_{\diamond}$. Since $K$ is closed under $\circ$ we do also find $[2]\ed, [3]\ed,\dots,[p-1]\ed,[p]\ed = \ec, [p+1]\ed = \ed, \dots$ a cyclic subgroup of order $p$ of $(K,\circ)$. Multiplying two such elements $[i]\ed \diamond [j]\ed = [ij]\ed$ again gives us an element of the set$\{[i]\ed | 0 \leq i < p\}$. The scalars are considered modulo $p$ because $[p]\ed = \ec$. Since $p$ is a prime, $i \cdot j \not \equiv 0 \bmod p$ for $0 < i,j < p$. This means that  $\{[i]\ed | 0<i<p\}$ forms a subgroup of $K^{\ast}$ (the multiplicative group in $K$; $K^{\ast} = K \backslash \{\ec\})$.
+
+\begin{figure}[H]
+  \centering\import{Chapter4/Pictures/}{ring_structure.pdf_tex}
+  \label{fig:ring_structure}
+\end{figure}
+
+If two structures (groups, rings, fields,...) behave exactly the same way so that one can give a one-to-one map between them, mathematicians call these twostructures \emph{isomorphic}\index{Isomorphism}. Out considerations have found a subfield of $K$ which is isomorphic to $\nicefrac{\Z}{p \Z}$ with map $[i]\ed \longmapsto i + p \Z$.
+
+\begin{definition}[Prime Field]\index{Prime Field}
+Let $K$ be a field. The smallest subfield contained in $K$ is called the \emph{prime field} of $K$.
+\end{definition}
+
+\begin{lemma}
+Let $K$ be a finite field of $\ch(K) = p$.\\
+The prime field of $K$ is isomorphic to $\nicefrac{\Z}{p \Z}$
+\begin{align*}
+\ec &\longmapsto 0 & \text{ in } \nicefrac{\Z}{p \Z} \\
+\ed &\longmapsto 1 & \text{ in } \nicefrac{\Z}{p \Z}
+\end{align*}
+\end{lemma}
+
+Above we found that an extension field can be considered as a vectorspace over its subfield. From now on we identify the prime field of a finite field with $\nicefrac{\Z}{p \Z}$ and write $0$ for $\ec$ and $1$ for $\ed$. Let $[K:\nicefrac{\Z}{p \Z}] = n$, i.e., the dimension of $K$ as a vectorspace over $\nicefrac{\Z}{p \Z}$ is $n$. This means that there exists a basis of $n$ linearly independent ``vectors'' $\alpha_1,\alpha_2,\dots,\alpha_n$. This being a basis means that every element in $K$ can be written in a unique way as $\sum\limits_{i=1}^n c_i \alpha_i$ with $c_i \in \nicefrac{\Z}{p \Z}$. The $p^n$ different choices for $(c_1,c_2,\dots,c_n) \in \nicefrac{\Z}{p \Z}^n$ mean that $K$ has $p^n$ elements.
+
+\begin{lemma}
+Let $K$ be a finite field. There exists a prime $p$ and an integer $n \in \N_{>0}$ such that $|K| = p^n$ and $\ch(K) = p$.
+\end{lemma}
+
+\begin{notation}
+A field of characteristic $p$ and dimension $n$ is $\F_{p^n}$ or $GF(p^n)$ (for ``\textsc{Galois} field'')\index{Galois Field}
+\end{notation}
+
+This implies that every finite field has a prime power as its cardinality, so in particular there are no fields of size $6, 10, 14, 15$ etc.
+
+In this representation it is very easy to add elements:
+\[
+	\left(\sum\limits_{i=1}^n c_i \alpha_i \right) + \left(\sum\limits_{i=1}^n d_i \alpha_i \right) = \sum\limits_{i=1}^n \left(c_i+d_i\right) \alpha_i
+\]
+but for multiplying them we need to know $\alpha_i \cdot \alpha_j$ for $1 \leq i,j \leq n$.
+
+\begin{remark}
+From now on we write $+$ for the first operation $\circ$ and $\cdot$ for the second operation $\diamond$, since we see $K$ as an extension of $\nicefrac{\Z}{p\Z}$.
+\end{remark}
+
+Let's see whether we can find out more about the multiplicative strucure. Remember that for a group $G$ we have $[|G|]a = e$ for any $a \in G$ by the properties of the order of a group. Since $K$ is a field, $K^{\ast}$ is a group and it has one element, namely $0$, less than $K$; thus $|K^{\ast}| = p^n-1$.
+
+\begin{lemma}
+Let $K$ be a finite field. The multiplicative group $K^{\ast}$ is cyclic.
+\end{lemma}
+
+Thus, for every $a \in K^{\ast}$ we have $a^{p^n-1} = 1$.
+
+Let's look at another field beyond $\nicefrac{\Z}{p \Z}$. We know that they must have $p^n$ elements for some $p$ and $n$ - so what about a field with $2^2 = 4$ elements? This should have a basis of size $2$, let's use $\alpha_i = 1$ and $\alpha_2 =a$ then $\F_4 = {0,1,a,a+1}$ and we can simply write out the addition table using the vectorspace structure: \\
+
+\begin{tabular}{c|cccc}
+$+$ &  $0$ & $1$ & $a$ & $a+1$ \\
+\hline 
+$0$ & $0$ & $1$ & $a$ & $a+1$  \\
+$1$ & $1$ & $0$ & $a+1$ & $a$  \\
+$a$ & $a$ & $a+1$ & $0$ & $1$  \\
+$a+1$ & $a+1$ & $a$ & $1$ & $0$  \\
+\end{tabular} \\
+
+To write the multiplication table - if possible - we need to know what $a^2$ is in terms of $1, a$ and $a+1$. A table of a group has each element exactly once per row and column. So defining $a^2 = a$ conflict with having already entry $a$ in the first entry of this row (see left table below). Using $a^2 =1$ means that $a \cdot (a+1) = a^2 + a = 1 + a$ - but then the third column (in the middle table) has already $a+1$ in the first entry. Try $a^2 = a + 1$ then $a \cdot (a+1) = a^2 + a = (a+1) + a = 1$ and $(a+1) \cdot (a+1) = a^2 +a +a +1= a^2 +1 = (a+1)+1 = a$. \\
+
+\begin{tabular}{c|ccc}
+$\cdot$ &  $1$ & $a$ & $a+1$ \\
+\hline 
+$1$ & $1$ & $a$ & $a+1$  \\
+$a$ & \hl{$a$} & \hl{$a$} &   \\
+$a+1$ & $a+1$ &  &   \\
+\end{tabular} \,\,
+\begin{tabular}{c|ccc}
+$\cdot$ & $1$ & $a$ & $a+1$ \\
+\hline 
+$1$ & $1$ & $a$ & \hl{$a+1$}  \\
+$a$ & $a$ & $1$ & \hl{$a+1$}  \\
+$a+1$ & $a+1$ &  &   \\
+\end{tabular} \,\,
+\begin{tabular}{c|ccc}
+$\cdot$ &  $1$ & $a$ & $a+1$ \\
+\hline 
+$1$ & $1$ & $a$ & $a+1$  \\
+$a$ & $a$ & $a+1$ & $1$  \\
+$a+1$ & $a+1$ & $1$  & $a$  \\
+\end{tabular} \\
+
+The tables show all group properties except for associativity. We could probe this by checking all combinations but that is very cumbersome.
+
+%TODO \F_8 ausschreiben, siehe Skript.
+
+We could do the same that we just did with $\F_4$ now with $\F_8$, but this would take a while (we would now use $1, a$ and $b$ as a basis). The multiplication table is now $8 \times 8$. So the question arises: \\
+
+\begin{problem}
+How can we get this ``automatically''? How do we compute $\alpha_i \cdot \alpha_j$ without a lookup table?
+\end{problem} 
+\ \\
+The idea is to use a polynomial ring to represent the field elements. A polynomial ring also spans a vector space - but contrast to the vector space, the multiplication of polynomials is well defined.
+
+The polynomial ring\index{Polynomial Ring} over field $K$:
+\[
+	K[x] = \left\{\sum\limits_{i=1}^n a_i x^i | n \in \N, a_i \in K \right\}, \,\,\,\, f \in K[x], \,\, f = \sum f_i x_i.
+\]
+Let $n$ be the largest integer with $f_n \neq 0$ then $\deg(f) =n$, \emph{leading coefficient} $\op{LC}(f) = f_n$, \emph{leading term} $\op{LT} = f_x x^n$.
+
+\begin{definition}[Irreducible]\index{Irreducible}
+A polynomial $f \in K[x]$ is called \emph{irreducible} if $\deg(f) \geq 1$ and it cannot be written as a product of polynomials of lower degree over the same field, i.e. if $u|f$ then $u \in K$ or $u = f$ for all $u \in K[x]$ and $\deg(u) \leq \deg(f)$ \\
+Otherwise $f$ is \emph{reducible}\index{Reducible}. Note that this depends on the field $K$.
+\end{definition}
+
+\begin{example} \ \\
+\begin{itemize}
+\item $x^2-1 = (x+1)(x-1)$ is reducible in $\R[x]$.
+\item $x^4 + 2x +1 = (x^2 + 1)^2$ in $\R[x]$ has no roots but is reducible.
+\item $x^2 +1$ is irreducible in $\R[x]$ but reducible in $\C[x]$ by $(x-i)(x+i)$.
+\item $x^3+6x^2+4$ is irreducible in $\nicefrac{\Z}{7 \Z}$
+\end{itemize}
+\end{example}
+
+We will now look again at $GF(8) = GF(2^3)$. The question arises, what is $a \cdot b$ or $a \cdot a^2 = a^3$ since $b= a \cdot a = a^2$? We chose $a^3 = a+1$ and then all operations followed by using this equality. This polynomial - $a^3 + a +1$ - does not factor over $GF(2)$. Other choices we considered, e.g. $a^3 + 1$ do in fact factor and it was exactly by considering these factors, e.g. $(a+1)$ and $(a^2 + a +1)$ that we derived contradictions, e.g. $(a+1)\cdot (a^2+a+1) = a^3+1 = 0$ (using $a^3=1$). In the end we worked in $GF(2)[a]/_{(a^3+a+1)GF(2)[a]}$ - the polynomial ring over $GF(2)$ modulo the irreducible polynomial $a^3+a+1$.
+
+\begin{example}\ \\
+We want to compute $a \cdot (a^2 + a) = a^3 + a^2$ and $(a+1) \cdot (a^2+a) = a^3 + \cancel{a^2} + \cancel{a^2} + a = a^3 +a$. For this we use the irreducible polynomial $a^3 + a +1$ and do a polynomial long division: \ \\
+
+\bgroup
+\def\arraystretch{1.5}
+\begin{tabular}{clc}
+\cline{2-2}
+ \multicolumn{1}{r|}{$a^3 +a+1$} & $a^3+a^2$ & $ = 1$ \\
+ & $a^3+a+1$ & \\
+ \cline{2-2}
+ & \multicolumn{1}{r}{$a^2+a+1$} & \\
+\end{tabular}
+\egroup \hfill
+\bgroup
+\def\arraystretch{1.5}
+\begin{tabular}{clc}
+\cline{2-2}
+ \multicolumn{1}{r|}{$a^3 +a+1$} & $a^3+a$ & $ = 1$ \\
+ & $a^3+a+1$ & \\
+ \cline{2-2}
+ & \multicolumn{1}{r}{$1$} & \\
+\end{tabular}
+\egroup
+
+\end{example}
+
+In general, this construction gives a finite field:
+Let $f$ be an irreducible polynomial of degree $n$ over $GF(p)$. We define addition and multiplication on
+\[
+	GF(p)[x]/_{f(x)GF(p)[x]} = \left\{ \sum\limits_{i=0}^{n-1} a_i x^i | a_i \in GF(p) \right\}
+\]
+as addition and multiplication in $GF(p)[x]$ followed by reduction modulo $f(x)$. $\leadsto GF(p^n)$ \\ \\
+
+Let $g \in GF(p^n)$, $f$ irreducible in $GF(p)$. $\op{gcd}(f,g) =1$ (The $\op{gcd}$ of $f$ and $g$ has to be $1$ since $f$ is irreducible) and \textsc{XGCD} computes polynomials $h$ and $l$ with
+\begin{align*}
+1 &= g \cdot h + f \cdot l \\
+1 &\equiv g \cdot h \bmod f \\
+h &\equiv g^{-1} \bmod f
+\end{align*}
+
+\begin{example} \ \\
+The polynomial $f = x^3 + x^2 +1$ is irreducible over $GF(2)$. What is the inverse of $g = x^2 +1$ over $GF(2) \bmod f$? \\
+
+\bgroup
+\def\arraystretch{1.5}
+\begin{tabular}{clc}
+\cline{2-2}
+ \multicolumn{1}{r|}{$x^2 +1$} & $x^3+x^2 +1$ & $ = x+1$ \\
+ & \multicolumn{1}{r}{$-(x^3 + x)$} & \\
+ \cline{2-2}
+ & \multicolumn{1}{r}{$x^2+x+1$} & \\
+ & \multicolumn{1}{r}{$-(x^2+1)$} & \\
+ \cline{2-2}
+ & \multicolumn{1}{r}{$x$}
+\end{tabular}
+\egroup \hfill
+
+\[ \Rightarrow x^3 + x^2 +1= (x^2+1)(x+1)+x \qquad (\ast)\]
+
+\bgroup
+\def\arraystretch{1.5}
+\begin{tabular}{clc}
+\cline{2-2}
+ \multicolumn{1}{r|}{$x$} & $x^2+1$ & $ = x$ \\
+ & $-x^2$ & \\
+ \cline{2-2}
+ & \multicolumn{1}{r}{$1$} & \\
+\end{tabular}
+\egroup \hfill
+
+\[ \Rightarrow x^2 +1=x \cdot x +1 \qquad (\ast \ast)\]
+\begin{align*}
+1 &= f \cdot ? + g \cdot ?
+\end{align*}
+\begin{align*}
+1 &= (x^2+1) + x \cdot x  &\text{from } (\ast \ast)\\
+&= (x^2 +1) + [(x^3+x^2+1)+(x^2+1)(x+1)]x & \text{from inserting } (\ast) \\
+&= (x^2+1) + (x^3+x^2+1)x+(x^2+1)(x+1)x \\
+&= (x^3+x^2+1)x+(x^2+1)+(x^+1)(x+1)x \\
+&= (x^3+x^2+1)x+(x^2+1)[1+(x+1)x] \\
+&= (x^3+x^2+1)x+(x^2+1)[x^2+x+1] \\
+\end{align*}
+\end{example}
+
+\textbf{Alternative approach:}
+
+We know that $a^{p^n} =a$ and $a^{p^2-1}=1$ for $a \in GF(p^n)$ (\textsc{Lagrange's} Theorem).
+
+Thus $a \cdot a^{p^n-2} = a^{p^n-1} =1$.
+
+So we can compute the inverse of $(x^2+1)$ as $x(^2+1)^6$ in $GF(8)$:
+
+\[
+	(x^2+1)^{8-2} = (x^2+1)^6 = (x^2+1)^4 \cdot (x^2+1)^2 = \large((x^2+1)^2\large)^2 \cdot (x^2+1)^2
+\]
+
+How do we find irreducible polynomials? We can pick a random polynomial and check if it is irreducible using ``\textsc{Rabin's} test of irreducibility''\index{Rabin's Test of Irreducibility}.
+
+\begin{notation}
+We denote $\F_q^{\ast}$ as  the multiplicative group of $\F_q$. $\F_q^{\ast} = \F_q \setminus \{0\}$ is a cyclic group and if $\F_q^{\ast} = \langle g \rangle$ then the generator $g$ is called a \emph{primitive element}.
+\end{notation}
+
+\begin{example}
+\[
+	\F_7^{\ast}: \,\, \langle 2 \rangle = \{2^0=1,2^1=2,2^2=4\}
+\]
+$2^3=1$, etc. so $\langle 2 \rangle$ contains only $3$ elements, so $2$ is not primitive.
+\[
+\langle 3 \rangle = \{1,3,2,6,4,5\} = \F_7^{\ast}
+\]
+so  $3$ is a primitive element.
+\end{example}
+
+\begin{lemma}
+Let $G$ be a cyclic group of order $n$, then the order of any $a\in G$ satisfies:
+\[
+	\ord(a)|n
+\]
+\end{lemma}
+\begin{remark}
+$\ord(a)|n$ states how many times we need to multiply $a$ to receive $1$, i.\,e. $a^n=1$.
+\end{remark}
+
+\begin{example}\ \\
+\begin{itemize}
+\item $\ord(4) = 6$ in $\F_7^{\ast}$
+\item $\ord(2) = 3$ in $\F_7^{\ast}$
+\item $\ord(1) = 1$ in $\F_7^{\ast}$
+\item $\ord(6) = 2$ in $\F_7^{\ast}$
+\end{itemize}
+\end{example}
+
+\begin{lemma}
+Let $G$ be a cyclic group of order $n$, let $\langle g \rangle = G$, and let $l|n$.
+\[
+\text{Then } \ord(g^{\nicefrac{n}{l}}) = l
+\]
+\begin{proof}
+\[
+1, g^{\nicefrac{n}{l}}, g^{2\nicefrac{n}{l}}, g^{3\nicefrac{n}{l}}, \dots, g^{l\nicefrac{n}{l}} = 1
+\]
+so $\ord(g^{\nicefrac{n}{l}})$ is no larger than $l$ and $i \cdot \nicefrac{n}{l}$ for $0 \leq i < n$ is less than $n$. Because $n$ is minimum for $g$, $l$ is minimal for $\nicefrac{n}{l}$.
+\end{proof}
+\end{lemma}
+
+\begin{example}
+\[
+\langle 3 \rangle = \F_7^{\ast}; \,\, \ord(3^{\nicefrac{6}{2}} = 3^3) = \ord(6) = 2
+\]
+\end{example}
+
+There are multiple elements of order $l$: all the $g^{i \cdot \nicefrac{n}{l}}$ have order dividing $l$ and if $gcd(i,l)=1$ then $\ord(g^{i \cdot \nicefrac{n}{l}}) = l$.
+
+\begin{example}
+\begin{align*}
+&\F_{19}^{\ast} = \langle 2 \rangle \,\, , \,\, 19 - 1 = 18 = 2 \cdot 3^2 \\
+&\{ 1,2,4,8,-3,-6,7,-5,9,-1,-2,-4,-8,3,6,-7,5,9 \} = \langle 2 \rangle \\
+&2 \text{ has } \ord(6) \text{ , but } \ord(2^{2 \cdot \nicefrac{18}{6}}) = 3 \text{ , } \ord(2^{3 \cdot \nicefrac{18}{6}}) = 2
+\end{align*}
+This means there are $\varphi(l)$ elements of order $l$.
+\end{example}

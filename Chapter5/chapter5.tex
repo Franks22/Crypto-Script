@@ -1,0 +1,98 @@
+\chapter{Diffie-Hellman Key Exchange}\index{Diffie-Hellman Key Exchange}
+
+\section{Introduction}
+
+The \textsc{Diffie-Hellman Key Exchange} is used to secretly exchange keys for an encryption. The key exchange can be explained easily with an example:
+
+\textsc{A(lice)} and \textsc{(B)ob} want to exchange a key, without letting the eavesdropper \textsc{E(ve)} know. Everybody (including) \textsc{Eve} knows a cyclic group $G$, a generator $g$ and its order $n$:
+
+\begin{figure}[H]
+  \centering\import{Chapter5/Pictures/}{DH.pdf_tex}
+  \caption{Illustration of the\textsc{Diffie-Hellman key exchange}}{\textsc{A} and \textsc{B} both think of a number between $0$ and $n$ (this is $a$ and $b$ respectively). Now the compute $g^a$ and $g^b$ and exchange this information (so \textsc{Eve} knows $g^a$ and $g^b$. Then \textsc{A} computes $g^{b^a}$ and \textsc{B} computes $g^{a^b}$. So they both now know $g^{ab}$.}
+  \label{fig:caesar_cipher}
+\end{figure}
+
+In summary, this means that \textsc{A} computes $h_b^a = (g^b)^a = g^{ba} = g^{ab}$ and \textsc{B} computes $h_a^b = (g^a)^b = g^{ab}$. So \textsc{A} and \textsc{B} both share $g^{ab}$, while Eve only knows $g$, $h_a = g^a$, $h_b =g^b$.
+
+\section{Computational DH Problem (CDHP)}\index{Computational DH Problem (CDHP)}
+
+Given $g$, $g^a$, $g^b$ compute $g^{ab}$.
+
+In groups that are good for crypto there are no efficient attacks on the \textsc{CDHP}.
+
+\begin{example} Examples for these ``good groups'' are:
+\begin{itemize}
+\item elliptic curves over finite fields
+\item multipl. groups of finite fields
+\end{itemize}
+\end{example}
+
+\section{Decisional DH Problem (DDHP)}\index{Decisional DH Problem (DDHP)}
+
+Given $g$, $g^a$, $g^b$ and $g^c$.
+
+Decide whether $g^c = g^{ab}$.
+
+Proofs for protocols often use \textsc{DDHP} rathen than \textsc{CDHP}.
+
+Bad groups would be: $\langle 2 \rangle \subseteq \Q^{\ast}$:
+\[
+1,2,4,18,16 \cdots, 2^i, \dots  \qquad \text{no reduction}
+\]
+$h_a=2^a$, \textsc{E} takes $\log$ and gets $a$.
+
+\section{Discrete Logarithm Problem (DLP)}\index{Discrete Logarithm Problem}
+
+Given $g$ and $g^a$, compute $a$.
+
+Solving \textsc{DLP} implies solving \textsc{CDHP} implies solving \textsc{DDHP}. Usually \textsc{DLP} is the best attack we know on \textsc{DHP}, but there is no equivalence.
+
+In browser \textsc{DH} or \textsc{DHE} indicates that \textsc{DH} in finite fields is used. 
+
+\textsc{DH\textbf{E}}: ephemeral \textsc{DH}, i.\,e. use a new key for every connection or for each time interval.
+Perfectly forward secrecy. Somebody taking over your system at time $t$ should not be able to decrypt any message prior to time $t$ (or $t-t_0$, where $t_0$ is the time for the ephemeral key).
+
+\textsc{DH}: \textsc{Diffie-Hellman} with longterm keys.
+
+Crypto parameters choose $p$ to have $\geq 2048$ bits and prime, work in $\F_p^{\ast}$, are okay with long-term use; ephemeral is to deal with stuff outside crypto.
+
+\textsc{A(lice)} and \textsc{B(ob)} use share $g^{ab}$ after running it through a hash function to get a fixed-length string ($128$ or $256$ bits) with good distribution. Cryptographic hash functions are also:
+
+\begin{itemize}
+\item \emph{pre-image resistant},i.\,e. cannot find $g^{ab}$ from $h(g^{ab})$
+\item \emph{second-pre-image resistant}, i.\,e. cannot find another pre-image given the first one
+\item \emph{collision resistant}, i.\,e. cannot find two strings $m_1$ and $m_2$ with $h(m_1) = h(m_2)$.
+\end{itemize}
+
+\begin{remark}
+We know that $m_1$ and $m_2$ exist, but we don't want to be able to compute them.
+\end{remark}
+
+In \textsc{DH} we use $h(g^{ab})$ as shared key in symmetric crypto, e.\,g. \textsc{AES}.
+
+\section{ElGamal Encryption}\index{ElGamal Encryption}
+
+General parameters: $g$, $n$
+
+\textsc{Alice's} public key: $h_a = g^a$
+
+\textsc{Alice's} secret key: $a$
+
+Encryption: Pick random $0<k \leq n$, compute $r=g^k$, $c=h_a^k \cdot m$ (assume $m \in G$), with $m$ the message. We then send $(r,c)$.
+
+Decryption: $\nicefrac{c}{r^a} = m'$. This works, i.\,e. $m=m'$ because
+\[
+	\frac{c}{r^a} = \frac{h_a^k \cdot m}{(g^k)^a} = \frac{\cancel{(g^a)^k} \cdot m}{\cancel{(g^a)^k}} = m
+\]
+
+In practice, \textsc{ElGamal} is not used like this because $m \not \in G$. Instead $c= AES_{h(h_a^k)}(m)$ and $m'$ is computed by first computing $K = h(r^a)$ and then $AES_K(c) = m'$. This corresponds to asymmetric \textsc{DH}.
+
+\textsc{A} has longterm key, sender has $K$, $r$ as one time keys, but \textsc{DH} uses $h_a^K$ directly as key instead of transmitting $m$.
+
+\subsection{ElGamal Signature Scheme}\index{ElGamal Signature Scheme}
+
+Parameters as above; signature proves that the signer has access to $a$. Signature is on $h(m)$ not $m$ - fixed length; no algebraic relations.
+
+\emph{Sign:} Pick \textbf{one-time} $0<k<n$ nonce (= number used only once), compute $r=g^k$, compute $s=k^{-1}(h(m) - a \cdot r) \bmod n$. The signature is $(r,s)$.
+
+\emph{Verify:} Does $g^{h(m)}$ equal $h_a^r \cdot r^s$.
