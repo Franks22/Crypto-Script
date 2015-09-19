@@ -69,6 +69,7 @@
 \vspace*{0.5cm}\nopagebreak
 \tikz\node at (0pt,0pt) [draw=none,fill=ocre!50,line width=1pt,inner sep=5pt]{\parbox{\linewidth-2\fboxsep-2\fboxrule-2pt}{\centering\large\sffamily\bfseries\textcolor{white}{P}}};\vspace*{0.2cm}\nopagebreak
 
+  \item Pohlig-Hellman Attack\dotfill \hyperpage{28}
   \item Polynomial Ring\dotfill \hyperpage{21}
   \item Prime Field\dotfill \hyperpage{19}
   \item Private Key\dotfill \hyperpage{6}
