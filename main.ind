@@ -6,6 +6,12 @@
 
   \indexspace
 \vspace*{0.5cm}\nopagebreak
+\tikz\node at (0pt,0pt) [draw=none,fill=ocre!50,line width=1pt,inner sep=5pt]{\parbox{\linewidth-2\fboxsep-2\fboxrule-2pt}{\centering\large\sffamily\bfseries\textcolor{white}{B}}};\vspace*{0.2cm}\nopagebreak
+
+  \item Baby-Step-Giant-Step Algorithm\dotfill \hyperpage{30}
+
+  \indexspace
+\vspace*{0.5cm}\nopagebreak
 \tikz\node at (0pt,0pt) [draw=none,fill=ocre!50,line width=1pt,inner sep=5pt]{\parbox{\linewidth-2\fboxsep-2\fboxrule-2pt}{\centering\large\sffamily\bfseries\textcolor{white}{C}}};\vspace*{0.2cm}\nopagebreak
 
   \item Caesar Cipher\dotfill \hyperpage{5}
@@ -23,6 +29,7 @@
   \item Decisional DH Problem (DDHP)\dotfill \hyperpage{26}
   \item Diffie-Hellman Key Exchange\dotfill \hyperpage{25}
   \item Discrete Logarithm Problem\dotfill \hyperpage{26}
+  \item Distinguished Points\dotfill \hyperpage{31}
 
   \indexspace
 \vspace*{0.5cm}\nopagebreak
@@ -39,6 +46,7 @@
 
   \item Fast Fourier Transformation\dotfill \hyperpage{15}
   \item Finite Field\dotfill \hyperpage{17}
+  \item Floyd's Cyclic Finding Method\dotfill \hyperpage{30}
 
   \indexspace
 \vspace*{0.5cm}\nopagebreak
@@ -69,7 +77,9 @@
 \vspace*{0.5cm}\nopagebreak
 \tikz\node at (0pt,0pt) [draw=none,fill=ocre!50,line width=1pt,inner sep=5pt]{\parbox{\linewidth-2\fboxsep-2\fboxrule-2pt}{\centering\large\sffamily\bfseries\textcolor{white}{P}}};\vspace*{0.2cm}\nopagebreak
 
+  \item Parallel Pollard Rho\dotfill \hyperpage{31}
   \item Pohlig-Hellman Attack\dotfill \hyperpage{28}
+  \item Pollard's Rho Algorithm\dotfill \hyperpage{30}
   \item Polynomial Ring\dotfill \hyperpage{21}
   \item Prime Field\dotfill \hyperpage{19}
   \item Private Key\dotfill \hyperpage{6}

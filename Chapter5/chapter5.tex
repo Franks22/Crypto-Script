@@ -205,3 +205,78 @@ To get $a \bmod 4$, compute $(\nicefrac{17}{2})^9 = 27^9 = 36 \Rightarrow a \equ
 Same for $\bmod 9$: $(\nicefrac{17}{2})^4 = 27^4 = 10 \implies a =1+2 \cdot 3 \equiv 7 \bmod 9 \implies a \equiv 7 \bmod 36$.
 
 \end{example}
+
+\subsection{Pohlig-Hellman \& DDH}
+
+Computation no harder than in largest prime order group and factors weaken \textsc{DDH} $\implies$ work with $g$ of prime order $l$ $(n=l)$. New problem: solve \textsc{DLP} in $\langle g \rangle$ of prime order $l$. \\
+
+Approaches:
+\begin{itemize}
+\item \textbf{Brute Force Search:} Takes at most $l$ steps, on average done after $\nicefrac{l}{2}$.
+\item \textbf{Randomized Brute Force:} (if \textsc{E} suspects that \textsc{A} chooses $a$ in upper part of interval). Attack $h_a^b$ for some known $b$, i.\,e. compute \textsc{DL} of $h_a^b = g^{ab}$, get $ab$, get $a$ by dividing by $b$ modulo $l$. \textsc{E} can turn this into multi-target attack by searching for $h_a, h_a^{b_1}, h_a^{b_2}, h_a^{b_3}, \dots$ for known $b_i$; each would give $a$ after division.
+
+But each costs an exponensiation while a step in brute force costs a multiplication. Make the multiple targets cheaper by going after $1, h_a, h_a^2, h_a^3, h_a^4, \dots, h_a^m$. Compare to $1, g, g^2, g^3, g^4, \dots, g^k$ until we find a match.
+
+Birthday paradox says that after rougly $\sqrt{l}$ tries we get a collision, so choose $m \approx k \approx \sqrt{l}$
+\begin{remark}
+The birthday paradox states that in a group of only $23$ people the probability for a collision of birthdays (two people were born on the same date) is more than $50\%$.
+\end{remark}
+\item \textbf{Baby-Step-Giant-Step Algorithm:}\index{Baby-Step-Giant-Step Algorithm} Do this systematically, get deterministic algorithm, using $a= a_0 + m a_1$ for $m=\lfloor \sqrt{l}\rfloor$ with $0\leq a_0<m$ and $0\leq a_1\leq m\underbrace{+1}_{\text{no need}}$.
+\begin{enumerate}
+\item Compute Baby Steps:
+\[ g^0, g^1, g^2, \dots, g^{m-1} \]
+\item Put pairs $(g^i,i)$ in sorted table
+\item Compute $g^{-m} = G$
+\item Compute $h_a, h_aG, h_aG^2, \dots$ the Giant-Steps at every result, compare with table
+\item Once a match is found, i.\,e. $g^i = h_a \cdot G^j = h_a \cdot g^{-mj} \iff g^{i+mj} = h_a$, so output $i+mj$.
+\end{enumerate}
+\textbf{Running time:} Step 2 takes $m$ mults, Step 4 takes at most $m$ mults $\implies$ Total $\leq 2 \sqrt{l}$ and on average $~1.5 \sqrt{l}$ (can randomize to avoid corner cases)
+
+Downside: algorithm needs $\sqrt{l}$ storage. If one trades space for time, e.\,g. does only $l^{\nicefrac{1}{3}}$ BS, then one needs $\approx l^{\nicefrac{2}{3}}$ GS, so overall time goes up.
+
+\textbf{Summary:} \textsc{DLP} in any group can be solved in $\O(\sqrt{l})$.
+\end{itemize}
+
+\subsubsection{Pollard's Rho Algorithm}\index{Pollard's Rho Algorithm}
+
+Probabilistic algorithm, runs in $\sqrt{\frac{\pi}{2}l}$ (average case) steps. Perform a random walk in $\g$,  picking powers of $g$ and $h_a$ at random. If $g^i h_a^j = g^k h_a^m$ then $g^{i-k} = h_a^{m-j}$ so $a \equiv \nicefrac{(i-k)}{(m-j)} \bmod l$ (if invertible).
+
+Define random walk $f(W_i) = W_{i+1}$, depending only on current position $\implies$ no memory of how we got there.
+
+Expensive but very random
+\[ f(W_i) = \underbrace{g}_{F(W_i)} \underbrace{h_a}_{G(W_i)} \qquad \text{two exponents} \]
+
+Cheaper and fairly random: Make a small table of random steps $g_i h_a^j$ and select next step from this table $\implies$ just one mult per step.
+
+Schoolbook version for \textsc{Pollard's rho} in $\F_p^{\ast} \g$. Take $W_a = h_a^r$, $r$ random, update as
+
+\begin{align*}
+W_{i+1}=\begin{cases}
+  W_i\cdot g&, W_i\equiv0\mod 3 \\
+  W_i\cdot h&, W_i\equiv1\mod 3\\
+  W_i^2 &, W_i\equiv 2\mod 3
+\end{cases}
+\end{align*}
+That means that if $W_i=g^j h_a^k$ then 
+\begin{align*}
+W_{i+1}=\begin{cases}
+  g^{i+1}h_a^k  &, W_i\equiv0\mod 3 \\
+  g^{j}h_a^{k+1}&, W_i\equiv1\mod 3\\
+  g^{2j}h_a^{2k}&, W_i\equiv 2\mod 3
+\end{cases}
+\end{align*}
+
+Avoid using memory by using \textsc{Floyd's cyclic finding method}\index{Floyd's Cyclic Finding Method} Detecht whether your walk has entered a cycle by comparing $W_i \overset{?}{=} W_{2i}; W_{i+1} \overset{?}{=} W_{2(i+1)}$ etc. Do this as one fast walk taking 2 Steps at once and one slow walk. At every step compare $\implies$ twice the work, but only 2 group elements to store.
+Needs more computation and we won't find the first point that's visited twice - but only a small constant worse. Better than schoolbook: make table with random powers, e.\,g. $2048$ steps precomputed, choose these as powers of $g$ only: $h_a$ only for entrance points.
+
+\subsubsection{Parallel Pollard Rho}\index{Parallel Pollard Rho}
+
+About factor $n$ speed up for $n$ computers, some storage, some communication.
+
+Mark some group elements as ``distinguished points''\index{Distinguished Points}, e.\,g. elements with top $30$ bits equal to $0$.
+
+Whenever a walk reaches such a point, it reports the point and the powers of $g$ and $h_a$ to a server, the server sorts and stores these; eventually finds a collision between walks $\implies$ \textsc{DLP}.
+
+\textbf{In practice:} Communicate and store as little information as possible, so stop walk at distinguished point and start a new walk at some $h_a^r$. Report only (\textsc{DP},$r$). Do not compute the power of $g$, this happens only on the server and only once a collision is found. If \textsc{DP}-property is $30$ bits equal $0$, then each walk takes about $2^{30}$ steps.
+
+Total number of \textsc{DP}s reported to the server is roughly $\nicefrac{l^{\nicefrac{1}{2}}}{2^{30}}$ (or divide by $2^n$ if $n$ bits are $0$ for \textsc{DP}s).

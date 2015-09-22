@@ -30,3 +30,8 @@
 \indexentry{ElGamal Encryption|hyperpage}{27}
 \indexentry{ElGamal Signature Scheme|hyperpage}{27}
 \indexentry{Pohlig-Hellman Attack|hyperpage}{28}
+\indexentry{Baby-Step-Giant-Step Algorithm|hyperpage}{30}
+\indexentry{Pollard's Rho Algorithm|hyperpage}{30}
+\indexentry{Floyd's Cyclic Finding Method|hyperpage}{30}
+\indexentry{Parallel Pollard Rho|hyperpage}{31}
+\indexentry{Distinguished Points|hyperpage}{31}
