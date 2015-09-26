@@ -9,12 +9,12 @@ The \textsc{Diffie-Hellman Key Exchange} is used to secretly exchange keys for a
 \begin{figure}[H]
   \centering\import{Chapter5/Pictures/}{DH.pdf_tex}
   \caption{Illustration of the\textsc{Diffie-Hellman key exchange}}{\textsc{A} and \textsc{B} both think of a number between $0$ and $n$ (this is $a$ and $b$ respectively). Now the compute $g^a$ and $g^b$ and exchange this information (so \textsc{Eve} knows $g^a$ and $g^b$. Then \textsc{A} computes $g^{b^a}$ and \textsc{B} computes $g^{a^b}$. So they both now know $g^{ab}$.}
-  \label{fig:caesar_cipher}
+  \label{fig:DH}
 \end{figure}
 
 In summary, this means that \textsc{A} computes $h_b^a = (g^b)^a = g^{ba} = g^{ab}$ and \textsc{B} computes $h_a^b = (g^a)^b = g^{ab}$. So \textsc{A} and \textsc{B} both share $g^{ab}$, while Eve only knows $g$, $h_a = g^a$, $h_b =g^b$.
 
-\section{Computational DH Problem (CDHP)}\index{Computational DH Problem (CDHP)}
+\subsection{Computational DH Problem (CDHP)}\index{Computational DH Problem (CDHP)}
 
 Given $g$, $g^a$, $g^b$ compute $g^{ab}$.
 
@@ -27,7 +27,7 @@ In groups that are good for crypto there are no efficient attacks on the \textsc
 \end{itemize}
 \end{example}
 
-\section{Decisional DH Problem (DDHP)}\index{Decisional DH Problem (DDHP)}
+\subsection{Decisional DH Problem (DDHP)}\index{Decisional DH Problem (DDHP)}
 
 Given $g$, $g^a$, $g^b$ and $g^c$.
 
@@ -41,7 +41,7 @@ Bad groups would be: $\langle 2 \rangle \subseteq \Q^{\ast}$:
 \]
 $h_a=2^a$, \textsc{E} takes $\log$ and gets $a$.
 
-\section{Discrete Logarithm Problem (DLP)}\index{Discrete Logarithm Problem}
+\subsection{Discrete Logarithm Problem (DLP)}\index{Discrete Logarithm Problem}
 
 Given $g$ and $g^a$, compute $a$.
 
@@ -280,3 +280,135 @@ Whenever a walk reaches such a point, it reports the point and the powers of $g$
 \textbf{In practice:} Communicate and store as little information as possible, so stop walk at distinguished point and start a new walk at some $h_a^r$. Report only (\textsc{DP},$r$). Do not compute the power of $g$, this happens only on the server and only once a collision is found. If \textsc{DP}-property is $30$ bits equal $0$, then each walk takes about $2^{30}$ steps.
 
 Total number of \textsc{DP}s reported to the server is roughly $\nicefrac{l^{\nicefrac{1}{2}}}{2^{30}}$ (or divide by $2^n$ if $n$ bits are $0$ for \textsc{DP}s).
+
+$\rightarrow$ works in every group not just $\F_q^{\ast}$.
+
+The next attack is:
+
+\section{Index Calculus}\index{Index Calculus}
+
+Does use the structure of $\F_q^{\ast}$, works in some groups but not in all.
+
+In $\F_p^{\ast} 10 = 2 \cdot 5 (p > 10)$ is meaning full, so idea is to lift elements from $\F_p$ to $\Z$ and factor them there; or to lift from $\F_{2^n}$ to $\F_2 [x]$ using $\F_{2^n} \overset{\sim}{=} \nicefrac{\F_2 [x]}{f}$ with $f$ irreducible of degree $n$.
+
+\begin{remark}
+The ``lift'' operation can be seen as the opposite of the ``reduce'' (e.\,g. taking a large integer $\bmod 17$, would result in a number between $0$ and $16$) operation.
+\end{remark}
+
+In $\F_{p^n}$ can lift to $\F_p$ or $\F_p [x]$; depending on size of $p$ and $n$ pick one or the other.
+
+Take \textsc{DLP}: $g, h$ find $\log_g h = a$
+
+\begin{example} \ \\
+$h = 10$, so $h = 2 \cdot 5$ and thus $a = \log_g 2 + \log_g 5$ because $h= g^a = 2 \cdot 5 = g^{\log_g 2} \cdot g^{\log_g 5}$ assuming $g$ generates the entire group. Else we can use factorizations involving primes that are powers of $g$.
+\end{example}
+
+Why does turning one \textsc{DLP} into two \textsc{DLP}s help?
+
+Idea: find \textsc{DL}s of all small primes by getting lots of relations of the form:
+\[ g^{b_i} = \prod p_j^{e_ij} \]
+where the $p_i$ are in $\mathcal{F} = \{ \text{primes smaller than } B\}, B$ chosen appropriately. $\mathcal{F}$ is called the \emph{factorbase}\index{Factorbase}
+\begin{align*}
+b_i &= e_{11} \log_g p_{11} + e_{12} \log_g p_{12} + \dots + e_{1m} \log_g p_{1m} \\
+ &\vdots \qquad \qquad \qquad \vdots \qquad \qquad \qquad \vdots \\
+b_k &= e_{k1} \log_g p_{k1} + e_{k2} \log_g p_{k2} + \dots + e_{km} \log_g p_{km}
+\end{align*}
+This is a linear system of equations in the unknowns $\log_g p_{ij}$, use all primes in $\mathcal{F}$ for all expressions, i.\,e. $g^{b_i} = \prod\limits_{j=1}^m p_j^{e_ij}$ using $e_{ij} = 0$ if a prime does not appear. We have $m$ unknowns $\log_g p_j$, so we need $\geq m$ equations.
+
+\begin{example} \ \\
+$p = 107, \F_{107}^{\ast} = \langle 2 \rangle$, $h =57,$ find $\log_2 57$. Choosing $\mathcal{F} = \{2,3,5,7\}$ know already $\log_2 2 =1$
+\begin{align*}
+&2^7 = 21  = 3 \cdot 7 \\
+&2^{11} = 2 \cdot 3 \cdot 5 \\
+&2^{77} = 3^2 \cdot 7
+\end{align*}
+$\begin{gmatrix}[p]
+1 & & 0 & & 1 & & \BAR & 7\\
+1 & & 1 & & 0 & & \BAR & 11\\
+2 & & 0 & & 1 & & \BAR & 77
+\colops
+\mult4{\log 7}
+\mult2{\log 5}
+\mult0{\log 3}
+\end{gmatrix} \implies 
+\begin{gmatrix}[p]
+1 & & 0 & & 1 & & \BAR & 7\\
+0 & & 1 & & -1 & & \BAR & 4\\
+0 & & 0 & & -1 & & \BAR & 63
+\colops
+\mult4{\log 7}
+\mult2{\log 5}
+\mult0{\log 3}
+\end{gmatrix} \implies
+\begin{gmatrix}[p]
+1 & & 0 & & 0 & & \BAR & 70\\
+0 & & 1 & & 0 & & \BAR & 47\\
+0 & & 0 & & 1 & & \BAR & 43
+\colops
+\mult4{\log 7}
+\mult2{\log 5}
+\mult0{\log 3}
+\end{gmatrix} \\ $\ \\
+In the last step we used: entries in this matrix are exponents of $g$, so we compute $\bmod \ord(g) = 106$.
+
+Now we know 
+\[ 3= 2^{70}; \qquad 5 = 2^{47}; \qquad 7 = 2^{43}\]
+
+Note: We haven't used $h$ here, so this computation can be used to quickly attack any \textsc{DLP} in $\F_{107}^{\ast}$, at the cost of finding one relation involving $h$ with factors over $\mathcal{F}$. Here:
+\begin{align*}
+h &= 57 = 3 \cdot 19 \,\,\,\, \lightning \\
+h \cdot g &= 57 \cdot 2 = 7 \,\, \in \mathcal{F} \\
+\implies \log_g h &= \log_g 7 - 1 = 43 - 1 = 42
+\end{align*}
+\end{example}
+
+A number is \emph{smooth} if it factors into small $\overset{\sim}{=} \in \F$ primes. Work on index calculation to choose $g^{b_i}$ more likely to be smooth.
+
+\begin{definition}[L-Notation]\index{L-Notation}
+In size $N$ set:
+\[ L_N (\alpha,c) = \exp(c(\log N)^{\alpha}(\log \log N)^{1 - \alpha}) \]
+\end{definition}
+
+\begin{example}\ \\
+\begin{itemize}
+\item $\alpha = 1$, $L_N(1,c) = \exp (c(\log N)^{\alpha}) = N^c$
+\item $\alpha = 0$, $L_N(0,c) = \exp (c\log \log N) = \log N^c$
+\end{itemize}
+$\alpha$ between $0$ and $1$ interpolates between polynomial and exponential time.
+\end{example}
+
+Note: These are relative to size of $N$, i.\,e. relative to $\log N$.
+
+Algorithm shown so far runs in time $L_q(\nicefrac{1}{2},c)$, $c$ depending on $q$. Current research $L_q(\nicefrac{1}{3},c)$ in general and $L_q(\nicefrac{1}{4},c)$ and even less for small $p_i$, i.\,e. $p \in \{2, 3\}$ and $q = p^n$.
+
+\subsection{Logjam}\index{Logjam}
+
+Can downgrade \textsc{TLS} to using \textsc{DH} in $\F_p^{\ast}$ with $\log_2 p \approx 512$. \\
+
+There are very few different primes in use, so one can just precompute the relations for each of those primes; the attack per target is so fast that one can mount a man-in-the-middle attack.
+
+\begin{figure}[H]
+  \centering\import{Chapter5/Pictures/}{MITM.pdf_tex}
+  \caption{Man-in-the-Middle Attack}
+  \label{fig:MITM}
+\end{figure}
+
+The change of the cipher spec is secured by a cryptographic checksum In order to fake this, \textsc{E} needs to have the \textsc{DL} of $g^b$. \textsc{weakdh.org} has done this for $512$; $768$ is within reach. Maybe big agencies can do $1024$ bits. Interesting about larger sizes that are still used without downgrade.
+
+Note: $L_q(\nicefrac{1}{3},c)$ does not depend on group size $l$, so balance sizes in $l|q-1$ so that $\sqrt{l} \approx L_q(\nicefrac{1}{3},c)$. \\
+
+\textsc{keylength.org}:
+
+\begin{tabular}{c|c|c}
+$\log_2 l$ & $\log_2 q$ & security level \\
+\hline
+160 & 1024 & 80 bits, weak \\
+192 & 2048 & 96 bits, weak \\
+256 & 3072 & 128 bits, OK
+\end{tabular}\ \\
+
+Interesting for signatures where computation is done $\bmod l$ as well. \textsc{DSA} digital signature algorithm (\textsc{NIST/NSA 1992}) uses $g$ as generator of small subgroup; arranges signature equation so that $R = g^k$ is lifted to $\Z$ and $r \equiv R \bmod l$,  so $(r,s)$ has length $2 \log_2 l$.
+
+Doesn't help much in \textsc{DH}, so many suggestions use $\F_p$, where $p = 2p' + 1$, $p'$ is prime, so use $l = p'$ and s.\,t. $2$ has order $p'$.
+
+Common groups, e.\,g. \textsc{Oakley primes}\index{Oakley Primes} are fixed in protocols - no need for this from mathematical stand point but safer for implementation.

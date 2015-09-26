@@ -48,6 +48,7 @@
 \usepackage{soul}
 \usepackage{cancel}
 \usepackage{mathtools}
+\usepackage{gauss}
 
 
 %----------------------------------------------------------------------------------------
@@ -522,3 +523,8 @@ addtohook={%
 \newcommand{\hlc}[2][yellow]{ {\sethlcolor{#1} \hl{#2}} }
 \newcommand{\ord}{\op{ord}}
 \newcommand{\g}{\langle g \rangle}
+\newcommand{\BAR}{%
+  \hspace{-\arraycolsep}%
+  \strut\vrule % the `\vrule` is as high and deep as a strut
+  \hspace{-\arraycolsep}%
+}

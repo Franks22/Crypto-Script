@@ -44,6 +44,7 @@
 \vspace*{0.5cm}\nopagebreak
 \tikz\node at (0pt,0pt) [draw=none,fill=ocre!50,line width=1pt,inner sep=5pt]{\parbox{\linewidth-2\fboxsep-2\fboxrule-2pt}{\centering\large\sffamily\bfseries\textcolor{white}{F}}};\vspace*{0.2cm}\nopagebreak
 
+  \item Factorbase\dotfill \hyperpage{32}
   \item Fast Fourier Transformation\dotfill \hyperpage{15}
   \item Finite Field\dotfill \hyperpage{17}
   \item Floyd's Cyclic Finding Method\dotfill \hyperpage{30}
@@ -58,6 +59,7 @@
 \vspace*{0.5cm}\nopagebreak
 \tikz\node at (0pt,0pt) [draw=none,fill=ocre!50,line width=1pt,inner sep=5pt]{\parbox{\linewidth-2\fboxsep-2\fboxrule-2pt}{\centering\large\sffamily\bfseries\textcolor{white}{I}}};\vspace*{0.2cm}\nopagebreak
 
+  \item Index Calculus\dotfill \hyperpage{31}
   \item Irreducible\dotfill \hyperpage{21}
   \item Isomorphism\dotfill \hyperpage{19}
 
@@ -71,7 +73,15 @@
 \vspace*{0.5cm}\nopagebreak
 \tikz\node at (0pt,0pt) [draw=none,fill=ocre!50,line width=1pt,inner sep=5pt]{\parbox{\linewidth-2\fboxsep-2\fboxrule-2pt}{\centering\large\sffamily\bfseries\textcolor{white}{L}}};\vspace*{0.2cm}\nopagebreak
 
+  \item L-Notation\dotfill \hyperpage{32}
   \item Lagrange's Theorem\dotfill \hyperpage{11}
+  \item Logjam\dotfill \hyperpage{33}
+
+  \indexspace
+\vspace*{0.5cm}\nopagebreak
+\tikz\node at (0pt,0pt) [draw=none,fill=ocre!50,line width=1pt,inner sep=5pt]{\parbox{\linewidth-2\fboxsep-2\fboxrule-2pt}{\centering\large\sffamily\bfseries\textcolor{white}{O}}};\vspace*{0.2cm}\nopagebreak
+
+  \item Oakley Primes\dotfill \hyperpage{34}
 
   \indexspace
 \vspace*{0.5cm}\nopagebreak

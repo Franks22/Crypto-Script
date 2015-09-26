@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.9.5)  22 SEP 2015 23:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.9.5)  26 SEP 2015 15:53
 entering extended mode
 **main.tex
 (main.tex
@@ -619,6 +619,43 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_above_shortintertext_sep=\dimen202
 \l_MT_below_shortintertext_sep=\dimen203
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\gauss\gauss.sty"
+Package: gauss 2003/01/14
+\g@trash=\box51
+\g@matrixbox=\box52
+\g@eastbox=\box53
+\g@northbox=\box54
+\g@label=\box55
+\g@b@tmp=\box56
+\g@b@tmpa=\box57
+\g@b@tmpb=\box58
+\g@maxrow=\count141
+\g@maxcol=\count142
+\g@maxrow@old=\count143
+\g@maxcol@old=\count144
+\g@c@tmp=\count145
+\g@c@tmpa=\count146
+\g@axisHeight=\dimen204
+\g@linethickness=\dimen205
+\g@tab=\dimen206
+\g@arrowht=\dimen207
+\g@arrowwd=\dimen208
+\g@d@tmp=\dimen209
+\g@d@tmpa=\dimen210
+\g@d@tmpb=\dimen211
+\g@d@tmpc=\dimen212
+\g@d@tmpd=\dimen213
+\g@d@tmpe=\dimen214
+\g@loopCount=\count147
+\g@loopEnd=\count148
+\g@loopStep=\count149
+\colarrowsep=\dimen215
+\rowarrowsep=\dimen216
+\opskip=\dimen217
+\labelskip=\dimen218
+\colopminsize=\dimen219
+\rowopminsize=\dimen220
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\avant.sty"
 Package: avant 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
@@ -661,11 +698,11 @@ LaTeX Info: Redefining \hbar on input line 50.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\microtype.sty"
 Package: microtype 2013/05/23 v2.5a Micro-typographical refinements (RS)
 \MT@toks=\toks42
-\MT@count=\count141
+\MT@count=\count150
 LaTeX Info: Redefining \textls on input line 766.
-\MT@outer@kern=\dimen204
+\MT@outer@kern=\dimen221
 LaTeX Info: Redefining \textmicrotypecontext on input line 1285.
-\MT@listname@count=\count142
+\MT@listname@count=\count151
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\microtype-pdftex.def"
 File: microtype-pdftex.def 2013/05/23 v2.5a Definitions specific to pdftex (RS)
@@ -912,7 +949,7 @@ B)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.sty"
 Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count143
+\etb@tempcnta=\count152
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
@@ -934,7 +971,7 @@ Package etexcmds Info: Could not find \expanded.
 )))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\logreq\logreq.sty"
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count144
+\lrq@indent=\count153
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\logreq\logreq.def"
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
@@ -943,44 +980,44 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-\c@tabx@nest=\count145
-\c@listtotal=\count146
-\c@listcount=\count147
-\c@liststart=\count148
-\c@liststop=\count149
-\c@citecount=\count150
-\c@citetotal=\count151
-\c@multicitecount=\count152
-\c@multicitetotal=\count153
-\c@instcount=\count154
-\c@maxnames=\count155
-\c@minnames=\count156
-\c@maxitems=\count157
-\c@minitems=\count158
-\c@citecounter=\count159
-\c@savedcitecounter=\count160
-\c@uniquelist=\count161
-\c@uniquename=\count162
-\c@refsection=\count163
-\c@refsegment=\count164
-\c@maxextratitle=\count165
-\c@maxextratitleyear=\count166
-\c@maxextrayear=\count167
-\c@maxextraalpha=\count168
-\c@abbrvpenalty=\count169
-\c@highnamepenalty=\count170
-\c@lownamepenalty=\count171
-\c@maxparens=\count172
-\c@parenlevel=\count173
-\blx@tempcnta=\count174
-\blx@tempcntb=\count175
-\blx@tempcntc=\count176
-\blx@maxsection=\count177
-\blx@maxsegment@0=\count178
-\blx@notetype=\count179
-\blx@parenlevel@text=\count180
-\blx@parenlevel@foot=\count181
-\blx@sectionciteorder@0=\count182
+\c@tabx@nest=\count154
+\c@listtotal=\count155
+\c@listcount=\count156
+\c@liststart=\count157
+\c@liststop=\count158
+\c@citecount=\count159
+\c@citetotal=\count160
+\c@multicitecount=\count161
+\c@multicitetotal=\count162
+\c@instcount=\count163
+\c@maxnames=\count164
+\c@minnames=\count165
+\c@maxitems=\count166
+\c@minitems=\count167
+\c@citecounter=\count168
+\c@savedcitecounter=\count169
+\c@uniquelist=\count170
+\c@uniquename=\count171
+\c@refsection=\count172
+\c@refsegment=\count173
+\c@maxextratitle=\count174
+\c@maxextratitleyear=\count175
+\c@maxextrayear=\count176
+\c@maxextraalpha=\count177
+\c@abbrvpenalty=\count178
+\c@highnamepenalty=\count179
+\c@lownamepenalty=\count180
+\c@maxparens=\count181
+\c@parenlevel=\count182
+\blx@tempcnta=\count183
+\blx@tempcntb=\count184
+\blx@tempcntc=\count185
+\blx@maxsection=\count186
+\blx@maxsegment@0=\count187
+\blx@notetype=\count188
+\blx@parenlevel@text=\count189
+\blx@parenlevel@foot=\count190
+\blx@sectionciteorder@0=\count191
 \labelnumberwidth=\skip72
 \labelalphawidth=\skip73
 \biblabelsep=\skip74
@@ -991,9 +1028,9 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 \bibhang=\skip79
 \blx@bcfin=\read2
 \blx@bcfout=\write4
-\c@mincomprange=\count183
-\c@maxcomprange=\count184
-\c@mincompwidth=\count185
+\c@mincomprange=\count192
+\c@maxcomprange=\count193
+\c@mincompwidth=\count194
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -1002,72 +1039,72 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'alphabetic.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count186
-\c@savedafterword=\count187
-\c@annotator=\count188
-\c@savedannotator=\count189
-\c@author=\count190
-\c@savedauthor=\count191
-\c@bookauthor=\count192
-\c@savedbookauthor=\count193
-\c@commentator=\count194
-\c@savedcommentator=\count195
-\c@editor=\count196
-\c@savededitor=\count197
-\c@editora=\count198
-\c@savededitora=\count199
-\c@editorb=\count200
-\c@savededitorb=\count201
-\c@editorc=\count202
-\c@savededitorc=\count203
-\c@foreword=\count204
-\c@savedforeword=\count205
-\c@holder=\count206
-\c@savedholder=\count207
-\c@introduction=\count208
-\c@savedintroduction=\count209
-\c@namea=\count210
-\c@savednamea=\count211
-\c@nameb=\count212
-\c@savednameb=\count213
-\c@namec=\count214
-\c@savednamec=\count215
-\c@translator=\count216
-\c@savedtranslator=\count217
-\c@shortauthor=\count218
-\c@savedshortauthor=\count219
-\c@shorteditor=\count220
-\c@savedshorteditor=\count221
-\c@labelname=\count222
-\c@savedlabelname=\count223
-\c@institution=\count224
-\c@savedinstitution=\count225
-\c@lista=\count226
-\c@savedlista=\count227
-\c@listb=\count228
-\c@savedlistb=\count229
-\c@listc=\count230
-\c@savedlistc=\count231
-\c@listd=\count232
-\c@savedlistd=\count233
-\c@liste=\count266
-\c@savedliste=\count267
-\c@listf=\count268
-\c@savedlistf=\count269
-\c@location=\count270
-\c@savedlocation=\count271
-\c@organization=\count272
-\c@savedorganization=\count273
-\c@origlocation=\count274
-\c@savedoriglocation=\count275
-\c@origpublisher=\count276
-\c@savedorigpublisher=\count277
-\c@publisher=\count278
-\c@savedpublisher=\count279
-\c@language=\count280
-\c@savedlanguage=\count281
-\c@pageref=\count282
-\c@savedpageref=\count283
+\c@afterword=\count195
+\c@savedafterword=\count196
+\c@annotator=\count197
+\c@savedannotator=\count198
+\c@author=\count199
+\c@savedauthor=\count200
+\c@bookauthor=\count201
+\c@savedbookauthor=\count202
+\c@commentator=\count203
+\c@savedcommentator=\count204
+\c@editor=\count205
+\c@savededitor=\count206
+\c@editora=\count207
+\c@savededitora=\count208
+\c@editorb=\count209
+\c@savededitorb=\count210
+\c@editorc=\count211
+\c@savededitorc=\count212
+\c@foreword=\count213
+\c@savedforeword=\count214
+\c@holder=\count215
+\c@savedholder=\count216
+\c@introduction=\count217
+\c@savedintroduction=\count218
+\c@namea=\count219
+\c@savednamea=\count220
+\c@nameb=\count221
+\c@savednameb=\count222
+\c@namec=\count223
+\c@savednamec=\count224
+\c@translator=\count225
+\c@savedtranslator=\count226
+\c@shortauthor=\count227
+\c@savedshortauthor=\count228
+\c@shorteditor=\count229
+\c@savedshorteditor=\count230
+\c@labelname=\count231
+\c@savedlabelname=\count232
+\c@institution=\count233
+\c@savedinstitution=\count266
+\c@lista=\count267
+\c@savedlista=\count268
+\c@listb=\count269
+\c@savedlistb=\count270
+\c@listc=\count271
+\c@savedlistc=\count272
+\c@listd=\count273
+\c@savedlistd=\count274
+\c@liste=\count275
+\c@savedliste=\count276
+\c@listf=\count277
+\c@savedlistf=\count278
+\c@location=\count279
+\c@savedlocation=\count280
+\c@organization=\count281
+\c@savedorganization=\count282
+\c@origlocation=\count283
+\c@savedoriglocation=\count284
+\c@origpublisher=\count285
+\c@savedorigpublisher=\count286
+\c@publisher=\count287
+\c@savedpublisher=\count288
+\c@language=\count289
+\c@savedlanguage=\count290
+\c@pageref=\count291
+\c@savedpageref=\count292
 \shorthandwidth=\skip80
 \shortjournalwidth=\skip81
 \shortserieswidth=\skip82
@@ -1085,13 +1122,13 @@ Package biblatex Info: ... file 'biblatex.def' found.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\biblatex\biblatex.def"
 File: biblatex.def 
-\c@textcitecount=\count284
-\c@textcitetotal=\count285
-\c@textcitemaxnames=\count286
-\c@biburlnumpenalty=\count287
-\c@biburlucpenalty=\count288
-\c@biburllcpenalty=\count289
-\c@smartand=\count290
+\c@textcitecount=\count293
+\c@textcitetotal=\count294
+\c@textcitemaxnames=\count295
+\c@biburlnumpenalty=\count296
+\c@biburlucpenalty=\count297
+\c@biburllcpenalty=\count298
+\c@smartand=\count299
 )
 Package biblatex Info: Trying to load bibliography style 'alphabetic'...
 Package biblatex Info: ... file 'alphabetic.bbx' found.
@@ -1103,8 +1140,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\biblatex\bbx\standard.bbx"
 File: standard.bbx 2015/04/19 v3.0 biblatex bibliography style (PK/JW/AB)
-\c@bbx:relatedcount=\count291
-\c@bbx:relatedtotal=\count292
+\c@bbx:relatedcount=\count300
+\c@bbx:relatedtotal=\count301
 ))
 Package biblatex Info: Trying to load citation style 'numeric'...
 Package biblatex Info: ... file 'numeric.cbx' found.
@@ -1141,7 +1178,7 @@ Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
 Writing index file main.idx
 ("C:\Program Files\MiKTeX 2.9\tex\latex\titlesec\titletoc.sty"
 Package: titletoc 2011/12/15 v1.6 TOC entries
-\ttl@leftsep=\dimen205
+\ttl@leftsep=\dimen222
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
 \fancy@headwidth=\skip86
@@ -1177,7 +1214,7 @@ Package: amsthm 2015/03/04 v2.20.2
 \thm@headsep=\skip97
 \dth@everypar=\toks50
 )
-\c@dummy=\count293
+\c@dummy=\count302
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\mdframed\mdframed.sty"
 Package: mdframed 2013/07/01 1.9b: mdframed
@@ -1196,31 +1233,31 @@ L3 Module: l3tl 2015/07/14 v5659 L3 Token lists
 L3 Module: l3str 2015/07/14 v5659 L3 Strings
 L3 Module: l3seq 2015/07/24 v5681 L3 Sequences and stacks
 L3 Module: l3int 2015/07/14 v5659 L3 Integers
-\c_max_int=\count294
-\l_tmpa_int=\count295
-\l_tmpb_int=\count296
-\g_tmpa_int=\count297
-\g_tmpb_int=\count298
+\c_max_int=\count303
+\l_tmpa_int=\count304
+\l_tmpb_int=\count305
+\g_tmpa_int=\count306
+\g_tmpb_int=\count307
 L3 Module: l3quark 2015/07/14 v5659 L3 Quarks
 L3 Module: l3prg 2015/07/30 v5722 L3 Control structures
-\g__prg_map_int=\count299
+\g__prg_map_int=\count308
 L3 Module: l3clist 2014/08/23 v5354 L3 Comma separated lists
 L3 Module: l3token 2014/09/15 v5422 L3 Experimental token manipulation
 L3 Module: l3prop 2014/08/23 v5354 L3 Property lists
 L3 Module: l3msg 2015/02/26 v5537 L3 Messages
 L3 Module: l3file 2015/07/30 v5714 L3 File and I/O operations
-\l_iow_line_count_int=\count300
-\l__iow_target_count_int=\count301
-\l__iow_current_line_int=\count302
-\l__iow_current_word_int=\count303
-\l__iow_current_indentation_int=\count304
+\l_iow_line_count_int=\count309
+\l__iow_target_count_int=\count310
+\l__iow_current_line_int=\count311
+\l__iow_current_word_int=\count312
+\l__iow_current_indentation_int=\count313
 L3 Module: l3skip 2015/07/14 v5659 L3 Dimensions and skips
-\c_zero_dim=\dimen206
-\c_max_dim=\dimen207
-\l_tmpa_dim=\dimen208
-\l_tmpb_dim=\dimen209
-\g_tmpa_dim=\dimen210
-\g_tmpb_dim=\dimen211
+\c_zero_dim=\dimen223
+\c_max_dim=\dimen224
+\l_tmpa_dim=\dimen225
+\l_tmpb_dim=\dimen226
+\g_tmpa_dim=\dimen227
+\g_tmpb_dim=\dimen228
 \c_zero_skip=\skip98
 \c_max_skip=\skip99
 \l_tmpa_skip=\skip100
@@ -1234,62 +1271,62 @@ L3 Module: l3skip 2015/07/14 v5659 L3 Dimensions and skips
 \g_tmpa_muskip=\muskip16
 \g_tmpb_muskip=\muskip17
 L3 Module: l3keys 2015/07/26 v5684 L3 Key-value interfaces
-\g__keyval_level_int=\count305
-\l_keys_choice_int=\count306
+\g__keyval_level_int=\count314
+\l_keys_choice_int=\count315
 L3 Module: l3fp 2015/07/09 v5652 L3 Floating points
-\c__fp_leading_shift_int=\count307
-\c__fp_middle_shift_int=\count308
-\c__fp_trailing_shift_int=\count309
-\c__fp_big_leading_shift_int=\count310
-\c__fp_big_middle_shift_int=\count311
-\c__fp_big_trailing_shift_int=\count312
-\c__fp_Bigg_leading_shift_int=\count313
-\c__fp_Bigg_middle_shift_int=\count314
-\c__fp_Bigg_trailing_shift_int=\count315
+\c__fp_leading_shift_int=\count316
+\c__fp_middle_shift_int=\count317
+\c__fp_trailing_shift_int=\count318
+\c__fp_big_leading_shift_int=\count319
+\c__fp_big_middle_shift_int=\count320
+\c__fp_big_trailing_shift_int=\count321
+\c__fp_Bigg_leading_shift_int=\count322
+\c__fp_Bigg_middle_shift_int=\count323
+\c__fp_Bigg_trailing_shift_int=\count324
 L3 Module: l3box 2014/08/23 v5354 L3 Experimental boxes
-\c_empty_box=\box51
-\l_tmpa_box=\box52
-\l_tmpb_box=\box53
-\g_tmpa_box=\box54
-\g_tmpb_box=\box55
+\c_empty_box=\box59
+\l_tmpa_box=\box60
+\l_tmpb_box=\box61
+\g_tmpa_box=\box62
+\g_tmpb_box=\box63
 L3 Module: l3coffins 2014/08/23 v5354 L3 Coffin code layer
-\l__coffin_internal_box=\box56
-\l__coffin_internal_dim=\dimen212
-\l__coffin_offset_x_dim=\dimen213
-\l__coffin_offset_y_dim=\dimen214
-\l__coffin_x_dim=\dimen215
-\l__coffin_y_dim=\dimen216
-\l__coffin_x_prime_dim=\dimen217
-\l__coffin_y_prime_dim=\dimen218
-\c_empty_coffin=\box57
-\l__coffin_aligned_coffin=\box58
-\l__coffin_aligned_internal_coffin=\box59
-\l_tmpa_coffin=\box60
-\l_tmpb_coffin=\box61
-\l__coffin_display_coffin=\box62
-\l__coffin_display_coord_coffin=\box63
-\l__coffin_display_pole_coffin=\box64
-\l__coffin_display_offset_dim=\dimen219
-\l__coffin_display_x_dim=\dimen220
-\l__coffin_display_y_dim=\dimen221
+\l__coffin_internal_box=\box64
+\l__coffin_internal_dim=\dimen229
+\l__coffin_offset_x_dim=\dimen230
+\l__coffin_offset_y_dim=\dimen231
+\l__coffin_x_dim=\dimen232
+\l__coffin_y_dim=\dimen233
+\l__coffin_x_prime_dim=\dimen256
+\l__coffin_y_prime_dim=\dimen257
+\c_empty_coffin=\box65
+\l__coffin_aligned_coffin=\box66
+\l__coffin_aligned_internal_coffin=\box67
+\l_tmpa_coffin=\box68
+\l_tmpb_coffin=\box69
+\l__coffin_display_coffin=\box70
+\l__coffin_display_coord_coffin=\box71
+\l__coffin_display_pole_coffin=\box72
+\l__coffin_display_offset_dim=\dimen258
+\l__coffin_display_x_dim=\dimen259
+\l__coffin_display_y_dim=\dimen260
 L3 Module: l3color 2014/08/23 v5354 L3 Experimental color support
 L3 Module: l3candidates 2015/07/22 v5677 L3 Experimental additions to l3kernel
-\l__box_top_dim=\dimen222
-\l__box_bottom_dim=\dimen223
-\l__box_left_dim=\dimen224
-\l__box_right_dim=\dimen225
-\l__box_top_new_dim=\dimen226
-\l__box_bottom_new_dim=\dimen227
-\l__box_left_new_dim=\dimen228
-\l__box_right_new_dim=\dimen229
-\l__box_internal_box=\box65
-\l__coffin_bounding_shift_dim=\dimen230
-\l__coffin_left_corner_dim=\dimen231
-\l__coffin_right_corner_dim=\dimen232
-\l__coffin_bottom_corner_dim=\dimen233
-\l__coffin_top_corner_dim=\dimen256
-\l__coffin_scaled_total_height_dim=\dimen257
-\l__coffin_scaled_width_dim=\dimen258
+\l__box_top_dim=\dimen261
+\l__box_bottom_dim=\dimen262
+\l__box_left_dim=\dimen263
+\l__box_right_dim=\dimen264
+\l__box_top_new_dim=\dimen265
+\l__box_bottom_new_dim=\dimen266
+\l__box_left_new_dim=\dimen267
+\l__box_right_new_dim=\dimen268
+\l__box_internal_box=\box73
+\l__coffin_bounding_shift_dim=\dimen269
+\l__coffin_left_corner_dim=\dimen270
+\l__coffin_right_corner_dim=\dimen271
+\l__coffin_bottom_corner_dim=\dimen272
+\l__coffin_top_corner_dim=\dimen273
+\l__coffin_scaled_total_height_dim=\dimen274
+\l__coffin_scaled_width_dim=\dimen275
 L3 Module: l3luatex 2015/06/30 v5646 L3 Experimental LuaTeX-specific functions
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3unicode-data.def"
@@ -1297,14 +1334,14 @@ File: l3unicode-data.def 2015/07/20 v-1 L3 Unicode data
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3pdfmode.def"
 File: l3pdfmode.def 2015/06/30 v5646 L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count316
+\l__driver_color_stack_int=\count325
 ))
 Package: xparse 2015/07/28 v5700 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count317
-\l__xparse_m_args_int=\count318
-\l__xparse_mandatory_args_int=\count319
-\l__xparse_processor_int=\count320
-\l__xparse_v_nesting_int=\count321
+\l__xparse_current_arg_int=\count326
+\l__xparse_m_args_int=\count327
+\l__xparse_mandatory_args_int=\count328
+\l__xparse_processor_int=\count329
+\l__xparse_v_nesting_int=\count330
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\zref-abspage.sty"
 Package: zref-abspage 2012/04/04 v2.24 Module abspage for zref (HO)
@@ -1333,14 +1370,14 @@ Package zref Info: New property: page on input line 761.
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\atbegshi.sty"
 Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
 )
-\c@abspage=\count322
+\c@abspage=\count331
 Package zref Info: New property: abspage on input line 62.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\needspace\needspace.sty"
 Package: needspace 2010/09/12 v1.3d reserve vertical space
 )
 \mdf@templength=\skip104
-\c@mdf@globalstyle@cnt=\count323
+\c@mdf@globalstyle@cnt=\count332
 \mdf@skipabove@length=\skip105
 \mdf@skipbelow@length=\skip106
 \mdf@leftmargin@length=\skip107
@@ -1384,11 +1421,11 @@ Package: needspace 2010/09/12 v1.3d reserve vertical space
 ("C:\Program Files\MiKTeX 2.9\tex\latex\mdframed\md-frame-0.mdf"
 File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 )
-\mdf@frametitlebox=\box66
-\mdf@footnotebox=\box67
-\mdf@splitbox@one=\box68
-\mdf@splitbox@two=\box69
-\mdf@splitbox@save=\box70
+\mdf@frametitlebox=\box74
+\mdf@footnotebox=\box75
+\mdf@splitbox@one=\box76
+\mdf@splitbox@two=\box77
+\mdf@splitbox@save=\box78
 \mdfsplitboxwidth=\skip144
 \mdfsplitboxtotalwidth=\skip145
 \mdfsplitboxheight=\skip146
@@ -1416,7 +1453,7 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 \mdf@horizontalspaceofbox=\skip168
 \mdfsubtitleheight=\skip169
 \mdfsubsubtitleheight=\skip170
-\c@mdfcountframes=\count324
+\c@mdfcountframes=\count333
 
 ****** mdframed patching \endmdf@trivlist
 
@@ -1432,10 +1469,10 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 . 
 . Defining command \mdtheorem with sig. ' O{} m o m o ' on line 701.
 .................................................
-\mdf@envdepth=\count325
-\c@mdf@env@i=\count326
-\c@mdf@env@ii=\count327
-\c@mdf@zref@counter=\count328
+\mdf@envdepth=\count334
+\c@mdf@env@i=\count335
+\c@mdf@env@ii=\count336
+\c@mdf@zref@counter=\count337
 Package zref Info: New property: mdf@pagevalue on input line 895.
 )
 \esp=\skip171
@@ -1476,16 +1513,16 @@ Package hobsub Info: Skipping package `atbegshi' (already loaded).
 Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
 Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 )
-\@linkdim=\dimen259
-\Hy@linkcounter=\count329
-\Hy@pagecounter=\count330
+\@linkdim=\dimen276
+\Hy@linkcounter=\count338
+\Hy@pagecounter=\count339
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count331
+\Hy@SavedSpaceFactor=\count340
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -1497,12 +1534,12 @@ Package hyperref Info: Plain pages OFF on input line 4458.
 Package hyperref Info: Backreferencing OFF on input line 4463.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
-\c@Hy@tempcnt=\count332
+\c@Hy@tempcnt=\count341
 LaTeX Info: Redefining \url on input line 5041.
-\XeTeXLinkMargin=\dimen260
-\Fld@menulength=\count333
-\Field@Width=\dimen261
-\Fld@charsize=\dimen262
+\XeTeXLinkMargin=\dimen277
+\Fld@menulength=\count342
+\Field@Width=\dimen278
+\Fld@charsize=\dimen279
 Package hyperref Info: Hyper figures OFF on input line 6295.
 Package hyperref Info: Link nesting OFF on input line 6300.
 Package hyperref Info: Hyper index ON on input line 6303.
@@ -1512,18 +1549,18 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6320.
 Package hyperref Info: PDF/A mode OFF on input line 6325.
 LaTeX Info: Redefining \ref on input line 6365.
 LaTeX Info: Redefining \pageref on input line 6369.
-\Hy@abspage=\count334
-\c@Item=\count335
-\c@Hfootnote=\count336
+\Hy@abspage=\count343
+\c@Item=\count344
+\c@Hfootnote=\count345
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
-\HyAnn@Count=\count337
-\Fld@listcount=\count338
-\c@bookmark@seq@number=\count339
+\HyAnn@Count=\count346
+\Fld@listcount=\count347
+\c@bookmark@seq@number=\count348
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
@@ -1534,29 +1571,29 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 
 Package hyperref Warning: Option `backref' has already been used,
-(hyperref)                setting the option has no effect on input line 485.
+(hyperref)                setting the option has no effect on input line 486.
 
 
 Package hyperref Warning: Option `pagebackref' has already been used,
-(hyperref)                setting the option has no effect on input line 485.
+(hyperref)                setting the option has no effect on input line 486.
 
 
 Package hyperref Warning: Option `hyperindex' has already been used,
-(hyperref)                setting the option has no effect on input line 485.
+(hyperref)                setting the option has no effect on input line 486.
 
-Package hyperref Info: Option `colorlinks' set `false' on input line 485.
-Package hyperref Info: Option `breaklinks' set `true' on input line 485.
+Package hyperref Info: Option `colorlinks' set `false' on input line 486.
+Package hyperref Info: Option `breaklinks' set `true' on input line 486.
 
 Package hyperref Warning: Option `bookmarks' has already been used,
-(hyperref)                setting the option has no effect on input line 485.
+(hyperref)                setting the option has no effect on input line 486.
 
-Package hyperref Info: Option `bookmarksopen' set `false' on input line 485.
+Package hyperref Info: Option `bookmarksopen' set `false' on input line 486.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\bookmark.sty"
 Package: bookmark 2011/12/02 v1.24 PDF bookmarks (HO)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\bkm-pdftex.def"
 File: bkm-pdftex.def 2011/12/02 v1.24 bookmark driver for pdfTeX (HO)
-\BKM@id=\count340
+\BKM@id=\count349
 )))
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
@@ -1568,13 +1605,9 @@ File: english.lbx 2015/04/19 v3.0 biblatex localization (PK/JW/AB)
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
 
-\@quotelevel=\count341
-\@quotereset=\count342
-(main.aux
-
-LaTeX Warning: Label `fig:caesar_cipher' multiply defined.
-
-)
+\@quotelevel=\count350
+\@quotereset=\count351
+(main.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
 LaTeX Font Info:    ... okay on input line 52.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
@@ -1629,16 +1662,16 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count343
-\scratchdimen=\dimen263
-\scratchbox=\box71
-\nofMPsegments=\count344
-\nofMParguments=\count345
+\scratchcounter=\count352
+\scratchdimen=\dimen280
+\scratchbox=\box79
+\nofMPsegments=\count353
+\nofMParguments=\count354
 \everyMPshowfont=\toks51
-\MPscratchCnt=\count346
-\MPscratchDim=\dimen264
-\MPnumerator=\count347
-\makeMPintoPDFobject=\count348
+\MPscratchCnt=\count355
+\MPscratchDim=\dimen281
+\MPnumerator=\count356
+\makeMPintoPDFobject=\count357
 \everyMPtoPDFconversion=\toks52
 ) ABD: EveryShipout initializing macros
 Package marginnote Info: \pdfoutput not 0 and \pdflastxpos available.
@@ -1673,7 +1706,7 @@ Package biblatex Warning: The following entry could not be found
 )
 Package biblatex Info: Reference section=0 on input line 52.
 Package biblatex Info: Reference segment=0 on input line 52.
-\AtBeginShipoutBox=\box72
+\AtBeginShipoutBox=\box80
 Package hyperref Info: Link coloring OFF on input line 52.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1681,7 +1714,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count349
+\c@section@level=\count358
 )
 LaTeX Info: Redefining \ref on input line 52.
 LaTeX Info: Redefining \pageref on input line 52.
@@ -1756,6 +1789,9 @@ LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <12> not available
 (Font)              Font shape `T1/pag/b/n' tried instead on input line 5.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <12> not available
 (Font)              Font shape `T1/pag/db/n' tried instead on input line 5.
+
+Underfull \vbox (badness 1983) has occurred while \output is active []
+
  [3
 
  <./Pictures/Header/Header.pdf>])
@@ -2025,7 +2061,7 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 101.
 (Chapter4/Pictures/ring_structure.pdf_tex
-<Chapter4/Pictures/ring_structure.pdf, id=273, page=1, 276.82211pt x 147.41518p
+<Chapter4/Pictures/ring_structure.pdf, id=272, page=1, 276.82211pt x 147.41518p
 t>
 File: Chapter4/Pictures/ring_structure.pdf Graphic file (type pdf)
  <use Chapter4/Pictures/ring_structure.pdf, page 1>
@@ -2033,7 +2069,7 @@ Package pdftex.def Info: Chapter4/Pictures/ring_structure.pdf, page1 used on in
 put line 52.
 (pdftex.def)             Requested size: 276.82211pt x 147.4193pt.
 
-<Chapter4/Pictures/ring_structure.pdf, id=274, page=2, 276.82211pt x 147.41518p
+<Chapter4/Pictures/ring_structure.pdf, id=273, page=2, 276.82211pt x 147.41518p
 t>
 File: Chapter4/Pictures/ring_structure.pdf Graphic file (type pdf)
  <use Chapter4/Pictures/ring_structure.pdf, page 2>
@@ -2150,7 +2186,7 @@ File: Pictures/Header/Header.pdf Graphic file (type pdf)
 Package pdftex.def Info: Pictures/Header/Header.pdf used on input line 1.
 (pdftex.def)             Requested size: 597.50787pt x 298.78056pt.
  (Chapter5/Pictures/DH.pdf_tex
-<Chapter5/Pictures/DH.pdf, id=330, page=1, 519.63208pt x 189.42288pt>
+<Chapter5/Pictures/DH.pdf, id=329, page=1, 519.63208pt x 189.42288pt>
 File: Chapter5/Pictures/DH.pdf Graphic file (type pdf)
 
 <use Chapter5/Pictures/DH.pdf, page 1>
@@ -2158,7 +2194,7 @@ Package pdftex.def Info: Chapter5/Pictures/DH.pdf, page1 used on input line 52.
 
 (pdftex.def)             Requested size: 519.63205pt x 189.42241pt.
 
-<Chapter5/Pictures/DH.pdf, id=331, page=2, 519.63208pt x 189.42288pt>
+<Chapter5/Pictures/DH.pdf, id=330, page=2, 519.63208pt x 189.42288pt>
 File: Chapter5/Pictures/DH.pdf Graphic file (type pdf)
 
 <use Chapter5/Pictures/DH.pdf, page 2>
@@ -2166,7 +2202,7 @@ Package pdftex.def Info: Chapter5/Pictures/DH.pdf, page2 used on input line 55.
 
 (pdftex.def)             Requested size: 519.63205pt x 189.42241pt.
 
-<Chapter5/Pictures/DH.pdf, id=332, page=3, 519.63208pt x 189.42288pt>
+<Chapter5/Pictures/DH.pdf, id=331, page=3, 519.63208pt x 189.42288pt>
 File: Chapter5/Pictures/DH.pdf Graphic file (type pdf)
 
 <use Chapter5/Pictures/DH.pdf, page 3>
@@ -2174,7 +2210,7 @@ Package pdftex.def Info: Chapter5/Pictures/DH.pdf, page3 used on input line 57.
 
 (pdftex.def)             Requested size: 519.63205pt x 189.42241pt.
 
-<Chapter5/Pictures/DH.pdf, id=333, page=4, 519.63208pt x 189.42288pt>
+<Chapter5/Pictures/DH.pdf, id=332, page=4, 519.63208pt x 189.42288pt>
 File: Chapter5/Pictures/DH.pdf Graphic file (type pdf)
 
 <use Chapter5/Pictures/DH.pdf, page 4>
@@ -2228,20 +2264,121 @@ Underfull \hbox (badness 10000) in paragraph at lines 211--212
 
  []
 
-[29] [30]) [31] [32
+[29] [30] [31]
+Underfull \hbox (badness 10000) in paragraph at lines 324--353
 
-]
-File: Pictures/Header/Header.pdf Graphic file (type pdf)
- <use Pictures/Header/Header.pdf>
-Package pdftex.def Info: Pictures/Header/Header.pdf used on input line 121.
-(pdftex.def)             Requested size: 597.50787pt x 298.78056pt.
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 367.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 367.
+
+Underfull \hbox (badness 10000) in paragraph at lines 372--374
+
+ []
+
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 386--387
+
+ []
+
+(Chapter5/Pictures/MITM.pdf_tex
+<Chapter5/Pictures/MITM.pdf, id=383, page=1, 605.63387pt x 211.13306pt>
+File: Chapter5/Pictures/MITM.pdf Graphic file (type pdf)
+
+<use Chapter5/Pictures/MITM.pdf, page 1>
+Package pdftex.def Info: Chapter5/Pictures/MITM.pdf, page1 used on input line 5
+2.
+(pdftex.def)             Requested size: 605.63385pt x 211.13254pt.
+
+<Chapter5/Pictures/MITM.pdf, id=384, page=2, 605.63387pt x 211.13306pt>
+File: Chapter5/Pictures/MITM.pdf Graphic file (type pdf)
+
+<use Chapter5/Pictures/MITM.pdf, page 2>
+Package pdftex.def Info: Chapter5/Pictures/MITM.pdf, page2 used on input line 5
+5.
+(pdftex.def)             Requested size: 605.63385pt x 211.13254pt.
+
+<Chapter5/Pictures/MITM.pdf, id=385, page=3, 605.63387pt x 211.13306pt>
+File: Chapter5/Pictures/MITM.pdf Graphic file (type pdf)
+
+<use Chapter5/Pictures/MITM.pdf, page 3>
+Package pdftex.def Info: Chapter5/Pictures/MITM.pdf, page3 used on input line 5
+7.
+(pdftex.def)             Requested size: 605.63385pt x 211.13254pt.
+
+<Chapter5/Pictures/MITM.pdf, id=386, page=4, 605.63387pt x 211.13306pt>
+File: Chapter5/Pictures/MITM.pdf Graphic file (type pdf)
+
+<use Chapter5/Pictures/MITM.pdf, page 4>
+Package pdftex.def Info: Chapter5/Pictures/MITM.pdf, page4 used on input line 6
+2.
+(pdftex.def)             Requested size: 605.63385pt x 211.13254pt.
+
+<Chapter5/Pictures/MITM.pdf, id=387, page=5, 605.63387pt x 211.13306pt>
+File: Chapter5/Pictures/MITM.pdf Graphic file (type pdf)
+
+<use Chapter5/Pictures/MITM.pdf, page 5>
+Package pdftex.def Info: Chapter5/Pictures/MITM.pdf, page5 used on input line 6
+4.
+(pdftex.def)             Requested size: 605.63385pt x 211.13254pt.
+
+<Chapter5/Pictures/MITM.pdf, id=388, page=6, 605.63387pt x 211.13306pt>
+File: Chapter5/Pictures/MITM.pdf Graphic file (type pdf)
+
+<use Chapter5/Pictures/MITM.pdf, page 6>
+Package pdftex.def Info: Chapter5/Pictures/MITM.pdf, page6 used on input line 6
+7.
+(pdftex.def)             Requested size: 605.63385pt x 211.13254pt.
+
+<Chapter5/Pictures/MITM.pdf, id=389, page=7, 605.63387pt x 211.13306pt>
+File: Chapter5/Pictures/MITM.pdf Graphic file (type pdf)
+
+<use Chapter5/Pictures/MITM.pdf, page 7>
+Package pdftex.def Info: Chapter5/Pictures/MITM.pdf, page7 used on input line 6
+9.
+(pdftex.def)             Requested size: 605.63385pt x 211.13254pt.
+)
+Overfull \hbox (178.8425pt too wide) in paragraph at lines 70--392
+ [][] 
+ []
 
 
-Package biblatex Warning: Setting 'defernumbers=true' recommended.
+Underfull \hbox (badness 10000) in paragraph at lines 398--399
 
-[33] [34
+ []
 
-] (main.ind
+
+Underfull \hbox (badness 10000) in paragraph at lines 402--409
+
+ []
+
+[33 <./Chapter5/Pictures/MITM.pdf> <./Chapter5/Pictures/MITM.pdf
+
+pdfTeX warning: pdflatex (file ./Chapter5/Pictures/MITM.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+> <./Chapter5/Pictures/MITM.pdf
+
+pdfTeX warning: pdflatex (file ./Chapter5/Pictures/MITM.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+> <./Chapter5/Pictures/MITM.pdf
+
+pdfTeX warning: pdflatex (file ./Chapter5/Pictures/MITM.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+> <./Chapter5/Pictures/MITM.pdf
+
+pdfTeX warning: pdflatex (file ./Chapter5/Pictures/MITM.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+> <./Chapter5/Pictures/MITM.pdf
+
+pdfTeX warning: pdflatex (file ./Chapter5/Pictures/MITM.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+> <./Chapter5/Pictures/MITM.pdf
+
+pdfTeX warning: pdflatex (file ./Chapter5/Pictures/MITM.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>]) [34] (main.ind
 File: Pictures/Header/Header.pdf Graphic file (type pdf)
  <use Pictures/Header/Header.pdf>
 Package pdftex.def Info: Pictures/Header/Header.pdf used on input line 1.
@@ -2277,42 +2414,45 @@ Overfull \hbox (1.20001pt too wide) in paragraph at lines 45--46
  []
 
 
-Overfull \hbox (1.20001pt too wide) in paragraph at lines 53--54
+Overfull \hbox (1.20001pt too wide) in paragraph at lines 54--55
 [][] 
  []
 
 
-Overfull \hbox (1.20001pt too wide) in paragraph at lines 59--60
+Overfull \hbox (1.20001pt too wide) in paragraph at lines 60--61
 [][] 
  []
 
 
-Overfull \hbox (1.20001pt too wide) in paragraph at lines 66--67
+Overfull \hbox (1.20001pt too wide) in paragraph at lines 68--69
 [][] 
  []
 
+[35
 
-Underfull \vbox (badness 1360) has occurred while \output is active []
-
- [35
 
 ]
-Overfull \hbox (1.20001pt too wide) in paragraph at lines 72--73
+Overfull \hbox (1.20001pt too wide) in paragraph at lines 74--75
 [][] 
  []
 
 
-Overfull \hbox (1.20001pt too wide) in paragraph at lines 78--79
+Overfull \hbox (1.20001pt too wide) in paragraph at lines 82--83
 [][] 
  []
 
 
-Overfull \hbox (1.20001pt too wide) in paragraph at lines 90--91
+Overfull \hbox (1.20001pt too wide) in paragraph at lines 88--89
 [][] 
  []
 
 
-Overfull \hbox (1.20001pt too wide) in paragraph at lines 98--99
+Overfull \hbox (1.20001pt too wide) in paragraph at lines 100--101
+[][] 
+ []
+
+
+Overfull \hbox (1.20001pt too wide) in paragraph at lines 108--109
 [][] 
  []
 
@@ -2324,18 +2464,14 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 142.
  (main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 142.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 142.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 35342 strings out of 493673
- 644583 string characters out of 3143961
- 1206920 words of memory out of 3000000
- 37634 multiletter control sequences out of 15000+200000
- 140178 words of font info for 354 fonts, out of 3000000 for 9000
+ 35426 strings out of 493673
+ 644969 string characters out of 3143961
+ 1213118 words of memory out of 3000000
+ 37697 multiletter control sequences out of 15000+200000
+ 140671 words of font info for 361 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  57i,18n,57p,10507b,1866s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
@@ -2353,9 +2489,9 @@ fonts/type1/urw/symbol/usyr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/sy
 mbol/usyr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:
 /Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/Mi
 KTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (36 pages, 819116 bytes).
+Output written on main.pdf (36 pages, 837507 bytes).
 PDF statistics:
- 599 PDF objects out of 1000 (max. 8388607)
- 121 named destinations out of 1000 (max. 500000)
- 60209 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 617 PDF objects out of 1000 (max. 8388607)
+ 125 named destinations out of 1000 (max. 500000)
+ 60244 words of extra memory for PDF output out of 61914 (max. 10000000)
 

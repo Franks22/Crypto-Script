@@ -1,0 +1,71 @@
+%% Creator: Inkscape 0.91_64bit, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'MITM.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{603.37121196bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.34861503)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{MITM.pdf}}%
+    \put(-0.00116939,0.21826139){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textsc{A}}}}%
+    \put(0.63916918,0.21826135){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textsc{B}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{MITM.pdf}}%
+    \put(0.29162154,0.2590715){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textsc{E}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{MITM.pdf}}%
+    \put(0.10201899,0.2900678){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{I can do}}}%
+    \put(0.4555218,0.28878964){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{I can do}}}%
+    \put(0.45817353,0.23916371){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\F_p{\ast}, p \approx 512$ bits}}}%
+    \put(0.10352131,0.23947553){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textsc{ECC}, $\F_p^{\ast}$, \textsc{RSA}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{MITM.pdf}}%
+    \put(0.33726976,0.13954775){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$g^b$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{MITM.pdf}}%
+    \put(0.33502674,0.05743486){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$g^a$}}}%
+    \put(0.43741451,0.13016905){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{stuff, $g \in \F_p^{\ast}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{MITM.pdf}}%
+    \put(0.1034703,0.00342315){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{needs to change the cipher spec to sound like \textsc{B} chooses $p \approx 512$ bits}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{MITM.pdf}}%
+  \end{picture}%
+\endgroup%
