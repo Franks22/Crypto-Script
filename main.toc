@@ -64,5 +64,41 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.4.1}Logjam}{33}{subsection.5.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\leavevmode {\color {ocre}Index}}{35}{section*.5}
+\contentsline {subsubsection}{Logjam-Paper}{34}{section*.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Hash Functions}{35}{chapter.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {7}Elliptic Curves}{37}{chapter.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Warm Up}{37}{section*.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.1}Trigonometric Formulas}{38}{section.7.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.2}Using Finite Fields}{39}{section.7.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.3}Edwards Curves}{40}{section.7.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.3.1}Twisted Edwards Curves}{41}{subsection.7.3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.4}Weierstrass Curve}{42}{section.7.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.4.1}Simplify Curve Equation}{44}{subsection.7.4.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.4.2}Addition Law}{44}{subsection.7.4.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.5}Montgomery Curves}{45}{section.7.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.6}ECDH}{46}{section.7.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.7}Factorizing RSA}{48}{section.7.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.7.1}Dixon's Method}{48}{subsection.7.7.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Improvements}{49}{section*.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.7.2}Pollard's Rho for Factoring}{49}{subsection.7.7.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.7.3}Pollard's $p-1$ Method}{49}{subsection.7.7.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\leavevmode {\color {ocre}Index}}{51}{section*.8}
 \contentsfinish 

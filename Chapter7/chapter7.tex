@@ -1,0 +1,788 @@
+\chapter{Elliptic Curves}\index{Elliptic Curves}
+
+\subsubsection{Warm Up}
+
+The clock: $x^2 + y^2 = 1$ (not elliptic)
+
+\begin{tikzpicture}[scale=3.0,cap=round,>=latex]
+        % draw the coordinates
+        \draw[->] (-1.2cm,0cm) -- (1.2cm,0cm) node[right,fill=white] {$x$};
+        \draw[->] (0cm,-1.2cm) -- (0cm,1.2cm) node[above,fill=white] {$y$};
+		\coordinate (O) at (0,0);
+		\coordinate (1200) at (0,1);
+		\coordinate (0130) at ({sqrt(0.5)},{sqrt(0.5)});
+		\coordinate (0200) at ({sqrt(0.75)},0.5);
+		\coordinate (0330) at (0.96592,-0.258819);
+        % draw the unit circle
+        \draw[dotted] (0cm,0cm) circle(1cm);
+        \draw[fill] (1,0) circle [radius=0.025];
+        	\node [below right] at (1,0) {$1$};
+        	\node [above right] at (1,0) {3:00 $\overset{\sim}{=}(1,0)$};
+        \draw[fill] (0,1) circle [radius=0.025];
+        	\node [below left] at (0,1) {$1$};
+        	\node [above right] at (0,1) {12:00 $\overset{\sim}{=}(0,1)$};
+		\draw[fill] (-1,0) circle [radius=0.025];
+        	\node [below left] at (-1,0) {$-1$};
+        	\node [above left] at (-1,0) {9:00 $\overset{\sim}{=}(-1,0)$};
+        \draw[fill] (0,-1) circle [radius=0.025];
+        	\node [below right] at (0,-1) {$-1$};
+        	
+        \draw[gray] (0,0) -- ({sqrt(0.5)},{sqrt(0.5)});
+        \draw[fill] ({sqrt(0.5)},{sqrt(0.5)}) circle [radius=0.015];
+        	\node [above right] at ({sqrt(0.5)},{sqrt(0.5)}) {1:30 $\overset{\sim}{=} 2x^2 = 1 \implies x = y = \sqrt{\nicefrac{1}{2}}$};
+        \draw[fill] ({sqrt(0.75)},0.5) circle [radius=0.015];
+        \draw[gray] (0,0) -- ({sqrt(0.75)},0.5);
+        	\node [right] at ({sqrt(0.75)},0.5) {2:00 $\overset{\sim}{=} (\sqrt{\nicefrac{3}{4}},\nicefrac{1}{2})$};
+		\draw[fill] (-0.5,{sqrt(0.75)}) circle [radius=0.015];
+        	\node [left] at (-0.5,{sqrt(0.75)}) {11:00 $\overset{\sim}{=} (-\nicefrac{1}{2},\sqrt{\nicefrac{3}{4}})$};
+        	\markangle[yellow]{1200}{O}{0200}{\small$\alpha_2$}{3};
+        	\markangle[ocre]{1200}{O}{0130}{\small$\alpha_1$}{2};
+        	\markangle[green]{1200}{O}{0330}{\small \qquad \qquad $\alpha_1 + \alpha_2$}{1};
+        	\draw[gray] (0,0) -- (0330);
+        	\draw[fill] (0330) circle [radius=0.015];
+\end{tikzpicture}
+
+We also have ``strange'' (= non clock) points, such as $(\nicefrac{3}{5},\nicefrac{4}{5})$.
+
+Define addition of clock points: Add points by adding angles; this matches addition of areas, addition of arch length and addition of times (e.\,g. $1:30 + 2:00 = 3:30$).
+
+\section{Trigonometric Formulas}\index{Trigonometric Formulas}
+
+\begin{tikzpicture}[scale=3.0,cap=round,>=latex]
+        % draw the coordinates
+        \draw[->] (-0.5cm,0cm) -- (1.2cm,0cm) node[right,fill=white] {$x$};
+        \draw[->] (0cm,-0.5cm) -- (0cm,1.2cm) node[above,fill=white] {$y$};
+        
+        \draw[scale=0.5,domain=0:1.8,smooth,variable=\x,black] plot ({\x},{\x});
+        \draw[fill](0,1) (0,1) circle [radius=0.025];
+        \node [left] at (0,1) {$1$};
+        \draw [gray,dotted,domain=0:90] plot ({cos(\x)}, {sin(\x)});
+        \coordinate (O) at (0,0);
+        \coordinate (M) at ({sqrt(0.5)},{sqrt(0.5)});
+        \markangle[ocre]{0,1}{O}{M}{\small$\alpha$}{3};
+        
+        \draw[-,ocre] (0,{sqrt(0.5)}) -- (M) node[above left,fill=white] {\small $x(\alpha) = \sin(\alpha)$};
+        \draw[-,ocre] ({sqrt(0.5)},0) -- (M);
+        \node[ocre, below right,fill=white] at ({sqrt(0.5)},0.5) {\small $y(\alpha)= \cos(\alpha)$};
+\end{tikzpicture}
+
+\begin{align*}
+x(\alpha_1 + \alpha_2) &= \sin (\alpha_1 + \alpha_2) = \sin \alpha_1 \cos \alpha_2 + \sin \alpha_2 \cos \alpha_1 = x(\alpha_1) y(\alpha_2) + x(\alpha_2)y(\alpha_1) \\
+y(\alpha_1) + \alpha_2) &= \cos (\alpha_1 + \alpha_2) = \cos \alpha_1 \cos \alpha_2 - \sin \alpha_1 \sin \alpha_2 = y(\alpha_1) y(\alpha_2) - x(\alpha_1)x(\alpha_2)
+\end{align*}
+
+Addition law:
+\[
+(x_1,y_1) + (x_2,y_2) = (x_1y_1+x_2y_1,y_1y_2-x_1x_2)
+\]
+
+No more angles, can use any $(x,y)$ on circle.
+
+\begin{example}
+\begin{align*}
+&\left(\nicefrac{3}{5},\nicefrac{4}{5} \right) + \left(\nicefrac{3}{5},\nicefrac{4}{5} \right)= \left(2 \,\, \nicefrac{3}{5} \,\, \nicefrac{4}{5},\left(\nicefrac{4}{5}\right)^2 - \left(\nicefrac{3}{5}\right)^2\right) = \left(\nicefrac{24}{25},\nicefrac{7}{25} \right) = 2 \left(\nicefrac{3}{5},\nicefrac{4}{5} \right) \\
+&\left(\nicefrac{3}{5},\nicefrac{4}{5} \right) + \left(\nicefrac{24}{5},\nicefrac{7}{5} \right)= \left(\nicefrac{117}{125},\nicefrac{-44}{125} \right) = 3 \cdot \left(\nicefrac{3}{5},\nicefrac{4}{5} \right) \\
+&4 \cdot \left(\nicefrac{3}{5},\nicefrac{4}{5}\right) = \left(\nicefrac{336}{625},\nicefrac{-527}{625} \right) \dots
+\end{align*}
+\end{example}
+
+These all lie on the curve (= circle), lots of points.
+
+Does this addition match the clock? 
+\[
+\left(\nicefrac{3}{5},\nicefrac{4}{5} \right) + \underbrace{\left(0,1\right)}_{\mathclap{\text{12 o'clock, no change to first part?}}} = \left(\nicefrac{3}{5} \cdot 1 + 0 \cdot \nicefrac{4}{5},\nicefrac{4}{5} \cdot 1 - \nicefrac{3}{5} \cdot 0 \right) = \left(\nicefrac{3}{5},\nicefrac{4}{5} \right)
+\]
+
+In general
+\[
+\left(x,y \right) + \left(0,1\right) = \left(x \cdot 1 + 0 \cdot y, y\cdot 1 - x \cdot 0 \right) = \left(x,y \right) \implies \left(0,1\right) \text{ is the neutral element}
+\]
+
+Show that $\left(x_1,y_1\right) + \left(x_2,y_2\right)$ is on circle.
+
+Associativity holds because $\alpha_1 + (\alpha_2 + \alpha_3) = (\alpha_1 + \alpha_2) + \alpha_3$ and the link $x=\sin \alpha$, $y=\cos \alpha$.
+
+$-\left(x,y\right) = \left(-x,y\right)$ (matching $-\alpha$, or just test $\left(x,y\right) + \left(-x,y\right) = \left(xy - xy. y^2 - (-x^2)\right) = (0,\underbrace{x^2+y^2}_{\mathclap{=1 \text{ because we're on the circle}}}) = \left(0,1\right)$
+
+$\implies$ group; also commutative: $\alpha_1 + \alpha_2 = \alpha_2 + \alpha_1$ 
+
+\section{Using Finite Fields}
+
+Can use the circle addition law for $\left(x,y\right) \in k^2$ for any field $k$ with $x^2+y^2 = 1$ (no divisions in the formulas, could even use a ring here). For cryptography don't use $k = \Q$, else $a \cdot \left(x,y\right)$ gives away easy information on  $a$, e.\,g. $a \cdot \left(\nicefrac{3}{5},\nicefrac{4}{5} \right) = \left(\nicefrac{\dots}{5^a},\nicefrac{\dots}{5^a} \right)$, instead use finite field $\F_q$; this ``wraps around'' so we don't get size information. ``Bad'' points for crypto:
+
+\begin{itemize}
+\item $\left(0,1\right)$ (neutral element, so $a \cdot \left(0,1\right) = \left(0,1\right)$)
+\item $\left(0,-1\right)$ point of order $2$: $2a \cdot \left(0,-1\right) = \left(0,1\right), (2a+1) \left(0,-1\right) = \left(0,-1\right)$
+\item $\left(\pm 1,0\right)$ have order $4$
+\item $\left(x,x\right)$, i.\,e. $1:30$ and the other sign combinations have order $8$
+\item other points of small finite order
+\item Modulo $p$ there are no points of infinite order - there are at most $p^2$ candidate points and of these only $p-1$ or $p+1$ are on the circle. (Plug in $x$, check whether $1-x^2$ is a square, if so we've found two points: $(x,y), (x,-y)$).
+\end{itemize}
+
+\begin{example} \ \\
+$p = 17$
+\begin{align*}
+&x=0: &1-0^2 =1 = (\pm 1)^2 \implies (0,\pm 1) \\
+&x=1: &1-1^2 =0 = 0^2 \implies (1,0) 
+\end{align*}
+symmetry gives also $(-1,0)$
+\begin{align*}
+&x=\pm 2: &1-4 =-3 = 14 \bmod 17 = \square \,\, ?? 
+\end{align*}
+
+\bgroup
+\def\arraystretch{1.5}
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c}
+ $z$ & $0$ & $\pm1$ & $\pm2$& $\pm3$& $\pm4$& $\pm5$& $\pm6$& $\pm7$& $\pm8$ \\ \hline
+$z^2$& $0$ & $1$ & $4$& $9$& $16$& $8$& $2$& $15$& $13$
+\end{tabular}
+\egroup \ \\
+
+$\implies$ ``half'' of all numbers appear, clear becaus $\F_q^{\ast} = \g$, so $g^{2a}$ are squares, $g^{2a+1}$ are non squares, also 0 is a square $\implies$ half means $\nicefrac{p+1}{2}$; in $\F_{2^n}$ every element is a square.
+$14$ is not in the table $\implies$ no point with $x= \pm 2$
+
+\begin{align*}
+&x=\pm 3: &1-9 =9 = (\pm 3)^2 \implies (\pm 3, \pm 3) \\
+&x=\pm 4: &1-16 =2 = (\pm 6)^2 \implies (\pm 4, \pm 6)
+\end{align*}
+
+$\implies 4$ more points using symmetries $(\pm 6, \pm 4)$
+
+\begin{align*}
+&x=\pm 5: &1-25 =10 \neq \square \,\,\text{ no points} \\
+&x=\pm 7: &1-49 =1-15 = 3  \neq \square \,\,\text{ no points} \\
+&x=\pm 8: &\text{ by symmetry, only candidates are } (\pm 8, \pm 8): \\
+& &\text{ test } 8^2+8^2 = -4-4 = -8 \neq 1 \implies \text{ no points}
+\end{align*}
+Set of all points: $\left\lbrace(0,\pm 1), (\pm 1,0), (\pm 3, \pm 3), (\pm 4, \pm 6), (\pm 6, \pm 4) \right\rbrace \implies 16 = 17 - 1$ points. Try $p=19$ yourself.
+
+\begin{remark}
+For the case $x=\pm 8$, we used symmetry. If $8$ would pair up with another point, say $(\pm 8 , \pm 3)$ then by symmetry the point $(\pm 3, \pm 8)$ would also work. Since this was not the case in any of the numbers before $8$, this means that $8$ can only ``pair'' with itself.
+\end{remark}
+\end{example}
+
+For crypto choose $p$ large enough and so that a large prime order subgroup appears. Sadly enough index calculus attacks apply to the circle; this is just a complicated description of a subgroup of $(\F_p^2)^{\ast}$ (or $\F_p \times \F_p$ ?).
+
+\section{Edwards Curves}\index{Edwards Curves}
+
+Tweak circle equation to $x^2 + y^2 = 1 + dx^2y^2$ (avoid $d=0$ and $d=1$). This keeps all symmetries, so $(x,y) \implies (\pm x, \pm y)$ and $(\pm y, \pm x)$.
+
+\begin{tikzpicture}[scale=2.7,cap=round,>=latex]
+        % draw the coordinates
+        \draw[->] (-1.2cm,0cm) -- (1.2cm,0cm) node[right,fill=white] {$x$};
+        \draw[->] (0cm,-1.2cm) -- (0cm,1.2cm) node[above,fill=white] {$y$};
+		\draw [gray,dotted,domain=0:90] plot ({cos(\x)}, {sin(\x)});
+		\draw plot[id=curve, raw gnuplot] function{
+      f(x,y) = (x**2 + y**2) - 1 -(x**2 * y**2)*-20;
+      set xrange [-1:1];
+      set yrange [-1:1];
+      set view 0,0;
+      set isosample 1000,1000;
+	  set size square;
+      set cont base;
+      set cntrparam levels incre 0,0.1,0;
+      unset surface;
+      splot f(x,y)
+    };
+		\draw[fill] (0,1) circle [radius=0.015];
+        	\node [above right] at (0,1) {$1$};
+       	\draw[fill] (1,0) circle [radius=0.015];
+        	\node [below right] at (1,0) {$1$};
+        \coordinate (O) at (0,0);
+        \coordinate (M) at ({sqrt(0.5)},{sqrt(0.5)});
+       \draw[->] (M) -- (0.43,0.43);
+\end{tikzpicture}
+
+This looks like a 4-legged starfish.
+
+We now want do define the addition $(x_1,y_1) + (x_2,y_2) = (x_3,y_3)$ with
+\[
+x_3 = \frac{(x_1y_2 + x_2y_1)}{(1+dx_1x_2y_1y_2)} \qquad y_3 = \frac{(y_1y_2-x_1x_2)}{(1-dx_1x_2y_1y_2)}
+\]
+
+if $x$ or $y = 0$ then same as on circle; $\implies$ $(0,1)$ is still the neutral element. 
+
+We now can check the inverse element $-(x,y) = (-x,y)$ because:
+\[
+x_3 = \frac{(xy - xy)}{(1-dx^2y^2)} = 0 \,\,\,\, \textcolor{ocre}{\checkmark} \qquad y_3 = \frac{(y^2+x^2)}{(1+dx^2y^2)}
+\]
+on \textsc{Edwards curve} $x^2+y^2 = 1 +dx^2y^2$, the numerator and denominator are equal, so $y_3 = 1$ (giving us $(0,1)$ as a result, which is in fact the neutral element).
+
+Use computer to verify that $(x_3,y_3)$ is on curve and that the addition is associative.
+
+Attention: We have divisions here!!
+
+Over $\R$ we can argue with sizes to see that $0 \leq |dx_1x_2y_1y_2|<1$ $\implies$ Ok. In $\F_q$ we need a different proof, shows that the denominators are $\neq 0$ if $d$ is not a square in $\F_q$ $\implies$ always pick a non square.
+
+\textsc{Edwards curves} for crypto: Pick $\F_q$ with $q$ odd, pick $d \in \F_q \backslash\{0,1\}$ which is not a square. The points on $E_d: x^2+y^2 = 1 + dx^2y^2$ form a group under the addition law above.
+
+\subsection{Twisted Edwards Curves}\index{Edwards Curves! Twisted}
+
+Generalization:
+\[
+ax^2+y^2=1+dx^2y^2 \qquad \qquad , a, d \in \F_q^{\ast}, a \neq d;
+\]
+complete addition (= no exceptions) if $a = \square; d \neq \square$. Here 
+\[
+(x_1,y_1) + (x_2,y_2) = \left(\frac{x_1y_2+x_2y_1}{1+dx_1x_2y_1y_2}, \frac{y_1y_2-ax_1x_2}{1-dx_1x_2y_1y_2}\right)
+\]
+We want $a$ to be small, so no cost for multiplication. Save costs in general, i.\,e. compute both numerators: $x_1y_1+x_2y_1$, and $y_1y_2-ax_1x_2$ in 3 mults. instead of 4 by computing: $A=y_1y_2$, $B=x_1x_2$ and then:
+\[
+(x_1+y_1)\cdot(x_2+y_2) = \underbrace{x_1 \cdot x_2}_{B} + \underbrace{x_1x_2+y_1x_2}_{\text{what we want}} + \underbrace{y_1y_2}_{A}
+\]
+so $x_1y_2 + x_2y_1 = (x_1+y_1)\cdot (x_2+y_2) - A - B$.\\
+
+Denominator needs 1 Mults extra for $A \cdot B$, then one by $d$ (want this small) and 2 divisions these are really expensive!
+
+Bring this down to 1 division using \textsc{Montgomery's trick}\index{Montgomery's trick}. Compute $\nicefrac{1}{C}$ and $\nicefrac{1}{D}$ by computing: $E=C \cdot D$, the $F = \nicefrac{1}{E} \left( = \nicefrac{1}{C \cdot  D} \right)$ and $\nicefrac{1}{C} = F \cdot D$, $\nicefrac{1}{D} = F \cdot D = F \cdot C$, using 2 M(ultiplication) , 1 I(inversion).
+
+Inversions cost much more than Ms, even using \textsc{XGCD}, but if we need to have constant-time implementation, we need to use \textsc{little Fermat's theorem}\index{Little Fermat's Theorem}.
+\[
+\nicefrac{1}{F} = F^{q-2}
+\]
+(this holds because $F^{q-1} = 1$, and we divide by $F$ on both sides.)
+
+$\implies$ use ``projective'' coordinates\index{Projective Coordinates}, i.\,e. represent $ x = \frac{X}{Z}$, $y=\frac{Y}{Z}$ as $\left(X:Y:Z\right)$ with $Z \neq 0$, and get new formulas using
+\[
+(x_1+y_1)\cdot(x_2+y_2) = \left(\frac{X_1}{Z_1} + \frac{Y_1}{Z_1}\right) \cdot \left(\frac{X_2}{Z_2} + \frac{Y_2}{Z_2} \right) = \frac{X_1+Y_1}{Z_1} \cdot \frac{X_2+Y_2}{Z_2} = \frac{(X_1+Y_1)(X_2+Y_2)}{\underbrace{Z_1Z_2}_{\mathclap{\text{new }Z \text{ coordinate}}}}
+\]
+trace through the $Z$ coords, simplify etc. $\implies$ explicit formulas.
+
+So far we have seen the \textsc{Edwards form}:
+
+\noindent
+\begin{minipage}{.3\textwidth}
+\centering
+\begin{tikzpicture}[scale=1.5,cap=round,>=latex]
+        % draw the coordinates
+        \draw[->] (-1.2cm,0cm) -- (1.2cm,0cm) node[right,fill=white] {$x$};
+        \draw[->] (0cm,-1.2cm) -- (0cm,1.2cm) node[above,fill=white] {$y$};
+		\draw plot[id=curve, raw gnuplot] function{
+      f(x,y) = (x**2 + y**2) - 1 -(x**2 * y**2)*-50;
+      set xrange [-1.5:1.5];
+      set yrange [-1.5:1.5];
+      set view 0,0;
+      set isosample 1000,1000;
+	  set size square;
+      set cont base;
+      set cntrparam levels incre 0,0.1,0;
+      unset surface;
+      splot f(x,y)
+    };
+        \node[above right] at (1,1) {$d<0$};
+\end{tikzpicture}
+\end{minipage}
+\hspace{1cm}
+\begin{minipage}{.3\textwidth}
+\centering
+\begin{tikzpicture}[scale=1.5,cap=round,>=latex]
+        % draw the coordinates
+        \draw[->] (-1.2cm,0cm) -- (1.2cm,0cm) node[right,fill=white] {$x$};
+        \draw[->] (0cm,-1.2cm) -- (0cm,1.2cm) node[above,fill=white] {$y$};
+		\draw plot[id=curve, raw gnuplot] function{
+      f(x,y) = (x**2 + y**2) - 1 -(x**2 * y**2)*5;
+      set xrange [-1.5:1.5];
+      set yrange [-1.5:1.5];
+      set view 0,0;
+      set isosample 1000,1000;
+	  set size square;
+      set cont base;
+      set cntrparam levels incre 0,0.1,0;
+      unset surface;
+      splot f(x,y)
+    };
+    \node[above right] at (1,1) {$d>1$};
+\end{tikzpicture}
+\end{minipage}
+\hspace{1cm}
+\begin{minipage}{.3\textwidth}
+\centering
+\begin{tikzpicture}[scale=1.5,cap=round,>=latex]
+        % draw the coordinates
+        \draw[->] (-1.2cm,0cm) -- (1.2cm,0cm) node[right,fill=white] {$x$};
+        \draw[->] (0cm,-1.2cm) -- (0cm,1.2cm) node[above,fill=white] {$y$};
+		\draw plot[id=curve, raw gnuplot] function{
+      f(x,y) = (x**2 + y**2) - 1 -(x**2 * y**2)*0.5;
+      set xrange [-1.5:1.5];
+      set yrange [-1.5:1.5];
+      set view 0,0;
+      set isosample 1000,1000;
+	  set size square;
+      set cont base;
+      set cntrparam levels incre 0,0.1,0;
+      unset surface;
+      splot f(x,y)
+    };
+    \node[above right] at (1,1) {$0<d<1$};
+\end{tikzpicture}
+\end{minipage}
+
+\section{Weierstrass Curve}\index{Weierstrass Curve}
+
+\[
+E: \,\,\, y^2+a_1 xy+a_3y=x^3+a_2x^2+a_4x+a_6
+\]
+where $a_i \in k$, $E$ is an elliptic curve if it is nonsingular.
+
+\begin{definition}[Singular]\index{Singular} \ \\
+A curve is \emph{singular} if any of its points over the field of definition $k$ or any extension field of $k$ is singular. \\
+A point is \emph{singular} if the tangent to the curve in that point is not uniquely determined.
+\end{definition}
+
+\begin{minipage}{0.75\textwidth}
+\begin{tikzpicture}[scale=2.7,cap=round,>=latex]
+        % draw the coordinates
+        \draw[->] (-1.2cm,0cm) -- (1.2cm,0cm) node[right,fill=white] {$x$};
+        \draw[->] (0cm,-1.2cm) -- (0cm,1.2cm) node[above,fill=white] {$y$};
+		\draw plot[id=curve, raw gnuplot] function{
+      f(x,y) = y**2 - x**3;
+      set xrange [-1:1];
+      set yrange [-1:1];
+      set view 0,0;
+      set isosample 1000,1000;
+	  set size square;
+      set cont base;
+      set cntrparam levels incre 0,0.1,0;
+      unset surface;
+      splot f(x,y)
+    };
+    \node[above right] at (-1,1) {$y^2=x^3$};
+    		\draw[fill] (0.25,0.125) circle [radius=0.015];
+%        	\node [above right] at (0.25,0.125) {$1$};
+        			\draw[fill] (0.25,-0.125) circle [radius=0.015];
+%        	\node [above right] at (0,1) {$1$};
+\draw[scale=0.5,domain=-0.7:1.5,smooth,variable=\x,ocre] plot ({\x},{(0.75* \x) - 0.1225});
+\node [above right] at (1,0.5) {\textcolor{ocre}{positive slope}};
+\draw[scale=0.5,domain=-0.7:1.5,smooth,variable=\x,ocre] plot ({\x},{-(0.75* \x) + 0.1225});
+\node [above right] at (1,-0.5) {\textcolor{ocre}{negative slope of tangent}};
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.25\textwidth}
+\begin{tikzpicture}[scale=5.0,cap=round,>=latex]
+\draw plot[id=curve, raw gnuplot] function{
+      f(x,y) = y**2 - x**3;
+      set xrange [0:0.5];
+      set yrange [-0.5:0.5];
+      set view 0,0;
+      set isosample 1000,1000;
+	  set size square;
+      set cont base;
+      set cntrparam levels incre 0,0.1,0;
+      unset surface;
+      splot f(x,y)
+    };
+    \node [above right] at (0,0.7) {Zoomed in:};
+    \node [right] at (0.6,0) {``cusp''};
+\end{tikzpicture}
+\end{minipage}
+\ \\
+Other examples:
+\ \\
+\begin{tikzpicture}[scale=2.7,cap=round,>=latex]
+        % draw the coordinates
+        \draw[->] (-0.7cm,0cm) -- (2.2cm,0cm) node[right,fill=white] {$x$};
+        \draw[->] (0cm,-1.7cm) -- (0cm,1.7cm) node[above,fill=white] {$y$};
+		\draw plot[id=curve, raw gnuplot] function{
+      f(x,y) = y**2 - x*(x-1)**2;
+      set xrange [-1:2];
+      set yrange [-2:2];
+      set view 0,0;
+      set isosample 1000,1000;
+	  set size square;
+      set cont base;
+      set cntrparam levels incre 0,0.1,0;
+      unset surface;
+      splot f(x,y)
+    };
+   \node[above right] at (-1.2,1.5) {$y^2=x(x-1)^2$};
+    		\draw[fill] (1,0) circle [radius=0.015];
+
+\draw[scale=0.5,domain=1.0:3.0,smooth,variable=\x,ocre] plot ({\x},{(\x) - 2});
+\node [above right] at (1.8,0.5) {\textcolor{ocre}{``node''}};
+\draw[scale=0.5,domain=1.0:3.0,smooth,variable=\x,ocre] plot ({\x},{2-(\x)});
+\node [above right] at (1.8,-0.5) {\textcolor{ocre}{``two tangents''}};
+\end{tikzpicture}
+
+\begin{minipage}{0.5\textwidth}
+\begin{tikzpicture}[scale=1.5,cap=round,>=latex]
+        % draw the coordinates
+        \draw[->] (-0.7cm,0cm) -- (2.2cm,0cm) node[right,fill=white] {$x$};
+        \draw[->] (0cm,-1.7cm) -- (0cm,1.7cm) node[above,fill=white] {$y$};
+		\draw plot[id=curve, raw gnuplot] function{
+      f(x,y) = y**2-((x+1)*x*(x-1));
+      set xrange [-2:2];
+      set yrange [-2:2];
+      set view 0,0;
+      set isosample 1000,1000;
+	  set size square;
+      set cont base;
+      set cntrparam levels incre 0,0.1,0;
+      unset surface;
+      splot f(x,y)
+    };
+   \node[above right] at (-1.2,2.0) {$y^2=(x+1)x(x-1)$};
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{tikzpicture}[scale=1.5,cap=round,>=latex]
+        % draw the coordinates
+        \draw[->] (-0.7cm,0cm) -- (2.2cm,0cm) node[right,fill=white] {$x$};
+        \draw[->] (0cm,-1.7cm) -- (0cm,1.7cm) node[above,fill=white] {$y$};
+		\draw plot[id=curve, raw gnuplot] function{
+      f(x,y) = y**2-x*(x**2+1);
+      set xrange [-2:2];
+      set yrange [-2:2];
+      set view 0,0;
+      set isosample 1000,1000;
+	  set size square;
+      set cont base;
+      set cntrparam levels incre 0,0.1,0;
+      unset surface;
+      splot f(x,y)
+    };
+   \node[above right] at (-1.2,2.0) {$y^2=x(x^2+1)$};
+\end{tikzpicture}
+\end{minipage}
+
+\begin{remark}
+The last two examples will go to $\infty$ for $x \rightarrow \infty$. This point is in fact on every vertical line and on $E$.
+\end{remark}
+
+Computational test for singularity in $(x,y) \in E(k')$: $P$ is singular if the partial derivatives of the curves equation
+\begin{align*}
+&E_x: &a_1y=3x^2+2a_2x+a_4 \\
+&E_y: &2y+a_1x+a_3=0
+\end{align*}
+
+are both satisfied by $P$. E.\,g.:
+\[
+y^2=x^3: \qquad 0=3x^2, 2y=0
+\]
+both hold in curve point $(0,0)$ $\implies$ this curve is singular.
+
+\begin{example}\ \\
+$y^2=x^3-x$ we get the derivatives:
+\[
+0=3x^2-1, \qquad 2y=0 \implies y=0
+\]
+which will give us $0=x^3-x$  $\implies x \in \{-1,0,1\}$(from $y=0$ inserted into the curves equation). So now we test for $(-1,0)$, $(0,0)$ and $(1,0)$ whether they satisfy the derivative with respect to $x$:
+\[
+3(\pm 1)^2 - 1 = 2 \neq 0 \text{ unless the characteristic of $k$ is 2.}
+\]
+\[
+3 \cdot (0)^2 - 1 = -1 \neq 0, \text{ same}
+\]
+So this curve is nonsingular if $\op{char}(k) \neq 2$.
+\end{example}
+
+\subsection{Simplify Curve Equation}
+
+Substitute $y-\frac{a_1}{2}x - \frac{a_3}{2}$ for $y$ (if $\op{char}(k) \neq 2$)
+\begin{align*}
+&\left(y-\frac{a_1}{2}x - \frac{a_3}{2}\right)^2 + a_1x \cdot \left(y-\frac{a_1}{2}x - \frac{a_3}{2}\right) + a_3 \left(y-\frac{a_1}{2}x - \frac{a_3}{2}\right) \\
+&=y^2\colub{-2 \frac{a_1}{2}xy}_{} \colub{-2\frac{a_3}{2}y}_{} + 2 \frac{a_1}{2} x \frac{a_3}{2} + \frac{a_1^2}{4}x^2 + \frac{a_3^3}{2} + \colub{a_1xy}_{} - \frac{a_1^2}{2} x^2 - \frac{a_1a_3}{2}x +\colub{a_3y}_{} - \frac{a_1a_3}{2} x - \frac{a_3^2}{2} \\
+&=y^2 + \text{ Terms in $x$  of degree } \leq 2 = x^3 + a_2x^2 + _4x + a_6\\
+&\implies y^2 = x^3 + b_2x^2 + b_4x + b_6 \implies y^2 = f(x).
+\end{align*}
+
+If $\op{char}(k) \neq 3$ subst. $x-\frac{b_2}{3}$ for $x$ to get $y^2=x^3 + ax + b$. Nonsingular if $4a^3 + 27b^2 \neq 0$.
+
+So we have \textsc{Long Weierstrass equation} with the constants:
+\[
+a_1 \dots a_6
+\]
+and the \textsc{Short Weierstrass equation} in the form (if $\op{char}(k) \neq 2$:
+\[
+y^2 = f(x)
+\]
+and in the case of $\op{char}(k) \neq 2,3$:
+\[
+y^2 = x^3 + ax + b
+\]
+if $\op{char}(k) = 2$ than either:
+\[
+y^2 + xy= x^3+a_2x^2 + a_6
+\]
+or:
+\[
+y^2 + a_3y = x^3 + a_4x + a_6
+\]
+in both cases you can restrict $a_2, a_3, a_4$ to smaller sets.
+
+\subsection{Addition Law}
+
+\begin{minipage}{0.5\textwidth}
+\begin{tikzpicture}[scale=2.0,cap=round,>=latex]
+        % draw the coordinates
+        \draw[->] (-0.7cm,0cm) -- (2.2cm,0cm) node[right,fill=white] {$x$};
+        \draw[->] (0cm,-1.7cm) -- (0cm,1.7cm) node[above,fill=white] {$y$};
+		\draw plot[id=curve, raw gnuplot] function{
+      f(x,y) = y**2-((x+1)*x*(x-1));
+      set xrange [-2:2];
+      set yrange [-2:2];
+      set view 0,0;
+      set isosample 1000,1000;
+	  set size square;
+      set cont base;
+      set cntrparam levels incre 0,0.1,0;
+      unset surface;
+      splot f(x,y)
+    };
+    \draw[fill] (-0.1,0.31) circle [radius=0.025];
+        	\node [above right] at (-0.1,0.31) {$Q$};
+    \draw[fill] (-0.98,-0.1) circle [radius=0.025];
+        	\node [below left] at (-0.98,-0.1) {$P$};
+    \draw[scale=1.0,domain=-1.1:2.0,smooth,variable=\x,ocre] plot ({\x},{0.4659*(\x) +0.3566});
+    \draw[fill] (1.3,0.96227) circle [radius=0.025];
+        	\node [below right] at (1.3,0.96227) {Intersection Point};    
+    \draw[fill] (1.3,-0.96227) circle [radius=0.025];
+        	\node [below right] at (1.3,-0.96227) {$P+Q$};
+	\draw[dashed] (1.3,0.96227) -- (1.3,-0.96227);
+    \draw[fill] (-0.5,-0.62) circle [radius=0.025];
+        	\node [below right] at (-0.5,-0.62) {$R$}; 
+	\draw[scale=1.0,domain=-1.1:2.0,smooth,variable=\x,ocre] plot ({\x},{0.3*(\x) - 0.47});
+	\draw[fill] (1.01,-0.167) circle [radius=0.025];
+	\draw[dashed] (1.01,-0.167) -- (1.01,0.167);
+    \draw[fill] (1.01,0.167) circle [radius=0.025];
+        	\node [right] at (1.01,0.167) {$2R$};
+	\draw[fill,red] (-0.7,0.6) circle [radius=0.025];
+			\node [above right] at (-0.7,0.6) {$\textcolor{red}{T}$};	
+	\draw[fill,red] (-0.7,-0.6) circle [radius=0.025];
+			\node [above right] at (-0.7,-0.6) {$\textcolor{red}{S}$};
+	\draw[fill,red] (-1,0) circle [radius=0.025];
+			\node [left] at (-1,0) {$\textcolor{red}{U}$};
+\draw[-,red] (-0.7,1.5) -- (-0.7,-1.5);
+\draw[-,red] (-1,1.0) -- (-1,-1.0);
+\end{tikzpicture}
+\end{minipage}
+\hspace{1.5cm}
+\begin{minipage}{.45\textwidth}
+Draw line through $P$ and $Q$, find third intersection point with $E$, result is the other point with the same $x$ coordinate.\\
+To double a point take the tangent.\\
+If I add $T+S$, they intersect at $\infty$ and we define the result as $\infty$, so $T+S=\infty$.\\
+Same goes for $2U$, where we get $2U = \infty$.\\
+Since we want a group (and that means we can add any point in the group), we can also add $\infty$. If we use a point $V'$ and calculate $V' + \infty$ we get $V'$ again! Since $\infty$ lies on a vertical line through $V'$, that means that the intersection point $V$ has the same $x$ coordinate as $V'$ and the result is again $V'$. This is equally true for $U+\infty = U$.
+\end{minipage}
+
+Addition law on $(x,y) \in E \cup \{\infty\}$:
+\begin{itemize}
+\item If one of the inputs is $\infty$, output the other point ($\infty + \infty = \infty$, $V + \infty = V$, $\infty + U = U$)
+\item Else (bot inputs are of the form $P=(x_P,y_P)$, $Q=(x_Q,y_Q)$)
+\begin{itemize}
+\item If $x_P = x_Q$ and $y_P = -y_Q$, output is $\infty$
+\item Else
+\begin{itemize}
+\item if $P=Q$, double
+\item else add using geometric formulas.
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+Do \textcolor{ocre}{NOT} implement with IF$\backslash$ELSE! \\
+
+In formulas, line $y=\lambda x + \mu$
+\[
+\lambda = \frac{3x_P^2+a}{2y_P} \qquad \qquad \text{for DBL; on } y^2 = x^3 + ax +b \qquad \text{ (calculate the derivative)}
+\]
+\[
+\lambda = \frac{y_P-y_Q}{x_P-x_Q} \qquad \qquad \text{for ADD, \textcolor{ocre}{NEVER use for DBL!}}
+\]
+Intersection point: $y^2 = x^3+ax+b = (\lambda x+\mu)^2 = \lambda^2x^2+2\lambda\mu x + \mu ^2$. We know $P$, $Q$ as intersection points and we want to find the third point.
+
+All three points are roots of:
+\begin{align*}
+0&=x^3 - \colub{\lambda^2 x^2}_{} + (a-2 \lambda \mu )x + b - \mu^2 \\
+&= (x-x_P)(x-x_Q)(x-\underbrace{x_3}_{\mathclap{\text{want this}}}) \\
+&= x^3 - (\colub{x_P+x_Q+x_3}_{})x^2 + \text{ stuff}
+\end{align*}
+\[
+\implies \lambda^2 = x_P + x_Q + x_3 \iff x_3 = \lambda^2 - x_P - x_Q
+\]
+To find $y_3$ note that $(x_3,y_3)$ is on $\lambda x + \mu = y$, so $y_3 = \lambda x_3 + \mu$ and $\lambda x_P + \mu = y_P \implies \mu = y_P - \lambda x_P$.
+\begin{align*}
+x_{P+Q} &= \lambda^2 - x_P - x_Q \\
+y_{P+Q} &= - \lambda x_{P+Q} - (y_P - \lambda x_P)\\
+&= \lambda (x_P - x_{P+Q}) - y_P
+\end{align*}
+
+\section{Montgomery Curves}\index{Montgomery Curves}
+
+\[
+By^2 = x^3 + Ax^2 + x
+\]
+Very close to \textsc{Weierstrass curves}, but extra $B$ (often $B = 1$).
+
+Famous example \textsc{CURVE 25519} used for crypto, has $A=486662$, $B=1$ and is defined over $\F_p$ with $p=2^{255} - 19$ (prime). Addition works same (up to $B$):
+\begin{align*}
+\lambda_{DBL} &= \frac{3x_P^2 + 2 A x_P + 1}{2 B y_P} \\
+x_{P+Q} &= B \lambda^2 - A -x_P - x_Q\\
+y_{P+Q} &= \lambda(x_P - x_{P+Q}) - y_P
+\end{align*}
+\textsc{Montgomery curves} are a bit more special than general \textsc{Weierstrass curves}, e.\,g. $(0,0)$ is on the curve and has order 2, over  a finite field the order is divisible by 4; same for \textsc{twisted Edwards curves}.
+
+Actually these describe the same curves, for $a u^2 +v^2 = 1 +d u^2 v^2$ and $A=\nicefrac{2(a+d)}{(a-d)}, B= \nicefrac{4}{(a-d)}$:
+\[
+\varphi: \text{Ed} \rightarrow \text{Mont}: x= \frac{1+v}{1-v}, y= \frac{1+v}{u(1-v)} = \frac{x}{u}
+\]
+\[
+\varphi^{-1}: \text{Mont} \rightarrow \text{Ed}: u= \frac{x}{y}, v= \frac{x-1}{x+1}
+\]
+are defined almost everywhere and $\varphi(P+Q) = \varphi(P) + \varphi(Q)$, $\varphi^{-1} \left(\varphi(P)\right) = P$ etc. \textsc{Montgomery} and \textsc{Edwards curves} are \emph{birationally equivalent}.
+
+\section{ECDH}\index{ECDH}
+
+= \textsc{DH} on \textsc{Elliptic curve}.
+
+Everybody knows $P \in E(\F_p)$, $\ord(P)=l, l$ prime.
+
+\begin{figure}[H]
+  \centering\import{Chapter7/Pictures/}{ECDH.pdf_tex}
+  \caption{\textsc{ECDH} Key Exchange}
+  \label{fig:ECDH}
+\end{figure}
+
+Both share $(ab)P$; use hash function on this point (or a coordinate) to derive a key for symmetric crypto (block or stream cipher; also need \textsc{MAC}).
+
+\begin{remark}
+In exams there are sometimes questions about \textsc{DH} in ($\F_p, +$) - the additive group. Don't use this in practice; this is totally broken. $h_a = a \cdot g$ (instead of $g^a$), divide by $g$ (modulo $p$) to get $a$; done). On \textsc{EC}s we do not have a multiplication structure, just addition, so no division by $D$.
+\end{remark}
+
+Attacks on \textsc{ECC}: generic attacks on the \textsc{DLP} in a group (\textsc{Pohlig-Hellman}, \textsc{Baby-Step-Giant-Step}, \textsc{Pollard Rho}), but no generalization of index calculus for curves over $\F_p$. \\
+
+\textbf{Avoid implementation errors:}\\
+
+Use \textsc{Edwards curves} with $a = \square$, $d \neq \square \implies $ no exceptions.
+
+Use \textsc{Montgomery curves} with \textsc{Montgomery ladder}: $P_0$, $P_1$, $P_1-P_0 = P_i$ update both points for every bit in $a=\sum\limits_{t=0} a_i2^i$ 
+
+\begin{example}\ \\
+$a=13 = 8 + 4 +1=(1101)_2$.
+\begin{align*}
+&P_0 = \,\,\,\, \tikzmark{infty}{\infty} &\tikzmark{P_i_1}{P_i} = P \qquad \qquad &\text{ initialize} \\
+&P_0 = \,\,\,\, \tikzmark{P}{P} &\tikzmark{P_i_2}{P_i} = 2P \qquad \qquad &\text{ bit is set, add into first component, double second} \\
+&P_0 = \,\,\,\, \tikzmark{3P}{3P} &\tikzmark{P_i_3}{P_i} = 4P \qquad \qquad &\text{ bit is set, add into first component, double second} \\
+&P_0 = \,\,\,\, \tikzmark{6P}{6P} &\tikzmark{P_i_4}{P_i} = 7P \qquad \qquad &\text{ bit is zero; double first}\\
+&P_0 = \,\,\,\, \tikzmark{13P}{13P} &\tikzmark{P_i_5}{P_i} = 14P \qquad \qquad & \text{}
+\end{align*}
+\end{example}
+
+Nice fact on \textsc{Montgomery curves} we can share some arithmetic between the DBL \& ADD steps; use that we add points at known difference; and we can do all of this using only the $x$ coordinate (using proj. coords this means $X$ and $Z$).
+
+We use $a_{24} = \nicefrac{(A-2)}{4}$ (that's why \textsc{Curve 25519}'s $A$ is $\equiv 2 \bmod 4$; this value is as small as possible to have $\# E(\F_p) = 8 \cdot l$, \& $\tilde{E} = 4 \cdot l'$, where $\tilde{E}$ is the quadratic twist of $E$, that is the curve  with the same $A$ and ``the other $B$'' (there are only \textbf{2} classes for $B$).
+
+We now use $P_2$ and $P_3$ as points in ladder. We initialize:
+\[
+x_1 = x \text{ (of input)} \qquad x_2 = 0 \qquad z_2 = 1
+\]
+\[
+x_3 = x_1 \qquad  z_3 = 1
+\]
+For $t = 254$ down to $0$:
+\[
+(P_2,P_3) = cswap (a_t,P_2,P_3) \qquad \text{ if $a_t =1$, swap; else not}
+\]
+$A=x_2 + z_2$; $AA = A^2$; $B=x_2-z_2$; $BB = B^2$; $E=AA-BB$; $C=x_3 + z_3$; $D=x_3-z_3$, $DA = D \cdot A$; $CB = C \cdot B$ 
+\[
+x_3 = (DA + CB)^2 \qquad z_3 = x_1 \cdot (DA - CB)^2 \qquad x_2 = AA \cdot BB \qquad z_2 = E \cdot (AA + a_{24} \cdot E)
+\]
+$(P_2,P_3) = cswap (a_t,P_2,P_3)$. $\implies$ this needs 4S(quarings), 5M(ultiplications), 1 mult. by $a_{24}$ per bit. Once the loop finishes, output $\nicefrac{x_2}{z_2} = x_2 \cdot z_x^{p-2}$.\\
+
+What is $cswap$? 
+\begin{align*}
+\text{dummy} &= a_t \cdot (x_2-x_3) \qquad \qquad \text{the multiplication is by 0 or 1} \\
+x_2 &= x_2 - \text{ dummy}\\
+x_3 &= x_3 + \text{ dummy}\\
+\end{align*}
+
+same for $z$-coordinate. If $a_t = 0$, we get $\text{ dummy } = 0$, so $x_2 =x_2$, $x_3=x_3$, else $\text{ dummy } = x_2 - x_3$, so $x_2 = x_2 - (x_2-x_3) = x_3$, $x_3 = x_3 + (x_2 - x_3) = x_2$.
+
+In implementation, merge the swap on $a_t$ after the loop with that on $a_{t-1}$ before next as 
+\[
+cswap (a_t + a_{t-1}, P_2, P_3)
+\]
+Alternative: $\text{ dummy } = \text{ mask } (a_t) \textsc{ AND } (x_2 \textsc{ XOR } x_3)$
+\begin{align*}
+x_2 &= x_2 \textsc{ XOR } \text{ dummy } \\
+x_3 &= x_3 \textsc{ XOR } \text{ dummy }
+\end{align*}
+where $\text{ mask }$ is $00 \dots 0, 11\dots 1$ of the same length as $p$.
+
+Instead of \textsc{ECDSA} use \textsc{EdDSA}
+
+\section{Factorizing RSA}
+
+Factorizing \textsc{RSA} numbers: $n= p \cdot q$. If we are lucky and know
+\[
+a^2 \equiv b^2 \bmod n
+\]
+for some $a \not\equiv \pm b \bmod n$. Then
+\[
+a^2 - b^2 = (a+b)(a-b) \equiv 0 \bmod n
+\]
+and $gcd(a-b,n)$ is a factor of $n$, i.\,e. $p$ or $q$.
+
+\subsection{Dixon's Method}\index{Dixon's Method}
+
+It is not the fastest but easy to understand.
+
+Build ourselves some $a$ and $b$: Pick $a_i$, compute $a_i^2 \bmod n$, consider this an integer in $[0,n-1]$ and factor it $\prod p_j^{e_{ij}}$. Similar to index calculus we have a factor base $\mathcal{F}$ consisting of primes. Keep those $a_i$ that factor completely.
+
+\begin{example}\ \\
+\begin{align*}
+a_1^2 &= 2^2 \cdot 3 \cdot 7 \\
+a_2^2 &= 2 \cdot 5 \cdot 7 \\
+a_3^2 &= 2 \cdot 3 \cdot 5 \\
+\end{align*}
+multiply and get $(a_1 \cdot a_2 \cdot a_3)^2 = (2^2 \cdot 3 \cdot 5 \cdot 7)^2$ This means one factorization per relation but these are ``easy'' factorizations, we only want relations that factor over $\mathcal{F}$.
+\end{example}
+For easy examples we do all of this by trial division; in real there is still some portion of trial division, e.\,g. primes up to $2^{13}$; but $\mathcal{F}$ contains larger primes; so we'll do some ``easy'' factorizations.
+
+Once we have enough relations over $\mathcal{F}$, solve the matrix, Note: we only care about odd and even exponents, so solve this over $\F_2$.
+
+\begin{example}
+\[
+\begin{gmatrix}[p]
+0 & & 1 & & 0 & & 1 \\
+1 & & 0 & & 1 & & 1 \\
+1 & & 1 & & 1 & & 0 
+\colops
+\mult6{\log 7}
+\mult4{\log 5}
+\mult2{\log 3}
+\mult0{\log 2}
+\end{gmatrix}
+\]
+\end{example}
+
+Here: solving shows that we want product of all 3 relations; usually a selection of relations. Left side is a square, as a product of squares, right side is build to be a square. Note: will need more than $|\mathcal{F}|$ many relations, might hit $a \equiv \pm b \bmod n$. If so, find more relations.
+
+\subsubsection{Improvements}
+
+choose $a_i =  \lceil \sqrt{n} \rceil + s$ (small) to get $a_i^2 = n + 2 \lceil \sqrt{n} \rceil s + s^2 + error(\approx \sqrt{n})$.  $\bmod n$ this gives $\approx 2 \lceil \sqrt{n} \rceil \cdot s + s^2 + \lceil \sqrt{n} \rceil = \mathcal{O}(\sqrt{n})$
+
+$\implies$ easier to factor, more likely to factor over $\mathcal{F}$.
+
+More improvements and you end up at the number field sieve, allow one or two larger primes per relation \& combine those.
+
+\subsection{Pollard's Rho for Factoring}
+
+Start with random $x_0$, pick random $c$ and iterate $x_{i+1} = x_i^2 + c \bmod m$ (with $m$, easy to factor. If we hit $x_{i+1} = x_{j+1}$, i.\,e. $x_i^2 + c \equiv x_j^2 + c \bmod m \implies x_i^2 \equiv x_j^2 \bmod m$. Maybe get a factor from $gcd(x_i-x_j,m)$, e.\,g. $m \equiv a_i^2 \bmod n$.
+
+Actually, we only need $x_i^2 \equiv x_j^2 \bmod p$, so we can think of this as doing a random walk on $\F_p$, find collision after $\O (\sqrt{p})$ steps.
+
+Avoid storage using \textsc{Floyd's}, so compute $gcd(x_{2i} - x_i,m)$ at every step, so each step costs 3 squarings and a $gcd$. Reduce the number of $gcd$s by batching, e.\,g.
+\[
+gcd \left( (x_{2i} - x_i)(x_{2i+2}-x_{i+1})\dots(x_{2i+2k} - x_{i+k}), m \right)
+\]
+
+\subsection{Pollard's $p-1$ Method}
+
+Know $b^{p-1} \equiv 1 \bmod p$, so if $p|m$ we have $p|gcd(a^{p-1}-1,m)$. I don't have $p$ so I cannot compute $b^{p-1}$ - but I can pick some $s$, compute $gcd(b^s-1,m)$. This finds $p$, if $\ord_p(b)|s$ (order of $b$ modulo $p$). So, hope that $p-1$ has many small divisors and take $s= lcm(1,2,3,4,\dots,B)$ for some bound $B$, or some other way of choosing $s$.
+
+Pick $b$, compute $b^s-1 \bmod m$, then compute $gcd$; repeat with different $b$ or larger $s$.
+
+\begin{remark}
+Stage 2: more big primes.
+\end{remark}
+
+Generalization: \textsc{ECM} = \textsc{elliptic curve method} of factorization.

@@ -30,13 +30,18 @@
   \item Diffie-Hellman Key Exchange\dotfill \hyperpage{25}
   \item Discrete Logarithm Problem\dotfill \hyperpage{26}
   \item Distinguished Points\dotfill \hyperpage{31}
+  \item Dixon's Method\dotfill \hyperpage{48}
 
   \indexspace
 \vspace*{0.5cm}\nopagebreak
 \tikz\node at (0pt,0pt) [draw=none,fill=ocre!50,line width=1pt,inner sep=5pt]{\parbox{\linewidth-2\fboxsep-2\fboxrule-2pt}{\centering\large\sffamily\bfseries\textcolor{white}{E}}};\vspace*{0.2cm}\nopagebreak
 
+  \item ECDH\dotfill \hyperpage{46}
+  \item Edwards Curves\dotfill \hyperpage{40}
+    \subitem  Twisted\dotfill \hyperpage{41}
   \item ElGamal Encryption\dotfill \hyperpage{27}
   \item ElGamal Signature Scheme\dotfill \hyperpage{27}
+  \item Elliptic Curves\dotfill \hyperpage{37}
   \item Euclidean Algorithm\dotfill \hyperpage{10}
   \item Extension Degree\dotfill \hyperpage{18}
 
@@ -54,6 +59,12 @@
 \tikz\node at (0pt,0pt) [draw=none,fill=ocre!50,line width=1pt,inner sep=5pt]{\parbox{\linewidth-2\fboxsep-2\fboxrule-2pt}{\centering\large\sffamily\bfseries\textcolor{white}{G}}};\vspace*{0.2cm}\nopagebreak
 
   \item Galois Field\dotfill \hyperpage{19}
+
+  \indexspace
+\vspace*{0.5cm}\nopagebreak
+\tikz\node at (0pt,0pt) [draw=none,fill=ocre!50,line width=1pt,inner sep=5pt]{\parbox{\linewidth-2\fboxsep-2\fboxrule-2pt}{\centering\large\sffamily\bfseries\textcolor{white}{H}}};\vspace*{0.2cm}\nopagebreak
+
+  \item Hash Functions\dotfill \hyperpage{35}
 
   \indexspace
 \vspace*{0.5cm}\nopagebreak
@@ -75,7 +86,15 @@
 
   \item L-Notation\dotfill \hyperpage{32}
   \item Lagrange's Theorem\dotfill \hyperpage{11}
+  \item Little Fermat's Theorem\dotfill \hyperpage{41}
   \item Logjam\dotfill \hyperpage{33}
+
+  \indexspace
+\vspace*{0.5cm}\nopagebreak
+\tikz\node at (0pt,0pt) [draw=none,fill=ocre!50,line width=1pt,inner sep=5pt]{\parbox{\linewidth-2\fboxsep-2\fboxrule-2pt}{\centering\large\sffamily\bfseries\textcolor{white}{M}}};\vspace*{0.2cm}\nopagebreak
+
+  \item Montgomery Curves\dotfill \hyperpage{45}
+  \item Montgomery's trick\dotfill \hyperpage{41}
 
   \indexspace
 \vspace*{0.5cm}\nopagebreak
@@ -93,6 +112,7 @@
   \item Polynomial Ring\dotfill \hyperpage{21}
   \item Prime Field\dotfill \hyperpage{19}
   \item Private Key\dotfill \hyperpage{6}
+  \item Projective Coordinates\dotfill \hyperpage{41}
   \item Public Key\dotfill \hyperpage{6}
 
   \indexspace
@@ -107,7 +127,20 @@
 \vspace*{0.5cm}\nopagebreak
 \tikz\node at (0pt,0pt) [draw=none,fill=ocre!50,line width=1pt,inner sep=5pt]{\parbox{\linewidth-2\fboxsep-2\fboxrule-2pt}{\centering\large\sffamily\bfseries\textcolor{white}{S}}};\vspace*{0.2cm}\nopagebreak
 
+  \item Singular\dotfill \hyperpage{42}
   \item Square and Multiply\dotfill \hyperpage{10}
   \item Subfield\dotfill \hyperpage{18}
+
+  \indexspace
+\vspace*{0.5cm}\nopagebreak
+\tikz\node at (0pt,0pt) [draw=none,fill=ocre!50,line width=1pt,inner sep=5pt]{\parbox{\linewidth-2\fboxsep-2\fboxrule-2pt}{\centering\large\sffamily\bfseries\textcolor{white}{T}}};\vspace*{0.2cm}\nopagebreak
+
+  \item Trigonometric Formulas\dotfill \hyperpage{38}
+
+  \indexspace
+\vspace*{0.5cm}\nopagebreak
+\tikz\node at (0pt,0pt) [draw=none,fill=ocre!50,line width=1pt,inner sep=5pt]{\parbox{\linewidth-2\fboxsep-2\fboxrule-2pt}{\centering\large\sffamily\bfseries\textcolor{white}{W}}};\vspace*{0.2cm}\nopagebreak
+
+  \item Weierstrass Curve\dotfill \hyperpage{42}
 
 \end{theindex}

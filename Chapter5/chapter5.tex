@@ -412,3 +412,13 @@ Interesting for signatures where computation is done $\bmod l$ as well. \textsc{
 Doesn't help much in \textsc{DH}, so many suggestions use $\F_p$, where $p = 2p' + 1$, $p'$ is prime, so use $l = p'$ and s.\,t. $2$ has order $p'$.
 
 Common groups, e.\,g. \textsc{Oakley primes}\index{Oakley Primes} are fixed in protocols - no need for this from mathematical stand point but safer for implementation.
+
+\subsubsection{Logjam-Paper}
+
+Check out part on \textsc{DSA} parameters: Send $(p,g,q)$ with $q = \ord_p(g)$, usually $q$ is prime. Computer understands $(p,q,g)$, so use $q$ as generator for \textsc{DH}; ignore $g$. This $q$ has same order dividing $p-1$, likely to have small factors $\rightarrow$ \textsc{Pohlig-Hellman} to get secret $\bmod$ some small factors, remember that $a$ is chosen $< q$, so these small factors might determine $a$ using \textsc{CRT}.
+
+To find $\ord_p(g)$ factor $p-1$ (later), for each prime factor $p_i$ of $(p-1)$ check whether $q^{\nicefrac{(p-1)}{p_i}} = 1$, then  $q^{\nicefrac{(p-1)}{p_i^2}} \overset{?}{=} 1$ etc. to get the order. We don't even need the complete factorization, as long as the known factors are small enough to compute \textsc{DL}s \& their product is larger than $q$.
+
+\begin{remark}
+Check out \textsc{Nadia Heninger}'s slides from \textsc{ECC 2015} (Bordeaux); add keyword \textsc{elliptic} to search.
+\end{remark}

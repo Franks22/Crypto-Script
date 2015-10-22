@@ -1,0 +1,67 @@
+%% Creator: Inkscape 0.91_64bit, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'ECDH.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{501.57161174bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.52004403)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{ECDH.pdf}}%
+    \put(0.05133519,0.4144868){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textsc{A}}}}%
+    \put(0.61109944,0.41448675){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textsc{B}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{ECDH.pdf}}%
+    \put(-0.00189249,0.35741341){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{picks $a$}}}%
+    \put(-0.00189249,0.30534322){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{computes $aP$}}}%
+    \put(-0.00189249,0.2511861){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{using DBL \& ADD}}}%
+    \put(0.6229164,0.35798113){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{picks $b$}}}%
+    \put(0.6229164,0.30591094){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{computes $bP$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{ECDH.pdf}}%
+    \put(-0.00189249,0.05452164){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{computes $a(bP)$}}}%
+    \put(0.62291635,0.05508934){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{computes $b(aP)$}}}%
+    \put(-0.00189249,0.2511861){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{1.06198669\unitlength}\raggedright \end{minipage}}}%
+    \put(-0.00189322,0.22395798){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.32084401\unitlength}\raggedright (=square \& multiply in add group, lots of speed ups,e.\,g. signed windows)\\ \end{minipage}}}%
+  \end{picture}%
+\endgroup%
